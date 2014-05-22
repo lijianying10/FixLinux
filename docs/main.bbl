@@ -1,0 +1,75 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 1.7 $
+% $ biber version 0.9.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber or bibtex as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \entry{article_key}{article}{}
+    \name{labelname}{1}{}{%
+      {{hash=26a8b4a95216218b2dfc1460f6d4c494}{Smith}{S\bibinitperiod}{James}{J\bibinitperiod}{}{}{}{}}%
+    }
+    \name{author}{1}{}{%
+      {{hash=26a8b4a95216218b2dfc1460f6d4c494}{Smith}{S\bibinitperiod}{James}{J\bibinitperiod}{}{}{}{}}%
+    }
+    \list{location}{1}{%
+      {City}%
+    }
+    \list{publisher}{1}{%
+      {Publisher}%
+    }
+    \strng{namehash}{26a8b4a95216218b2dfc1460f6d4c494}
+    \strng{fullhash}{26a8b4a95216218b2dfc1460f6d4c494}
+    \field{labelalpha}{Smi13}
+    \field{sortinit}{S}
+    \field{month}{03}
+    \field{number}{6}
+    \field{title}{Article title}
+    \field{volume}{14}
+    \field{year}{2013}
+    \field{pages}{1\bibrangedash 8}
+  \endentry
+
+  \entry{book_key}{book}{}
+    \name{labelname}{1}{}{%
+      {{hash=5d0ddda3a367ceb26fbaeca02e391c22}{Smith}{S\bibinitperiod}{John}{J\bibinitperiod}{}{}{}{}}%
+    }
+    \name{author}{1}{}{%
+      {{hash=5d0ddda3a367ceb26fbaeca02e391c22}{Smith}{S\bibinitperiod}{John}{J\bibinitperiod}{}{}{}{}}%
+    }
+    \list{location}{1}{%
+      {City}%
+    }
+    \list{publisher}{1}{%
+      {Publisher}%
+    }
+    \strng{namehash}{5d0ddda3a367ceb26fbaeca02e391c22}
+    \strng{fullhash}{5d0ddda3a367ceb26fbaeca02e391c22}
+    \field{labelalpha}{Smi12}
+    \field{sortinit}{S}
+    \field{edition}{1}
+    \field{month}{01}
+    \field{series}{2}
+    \field{title}{Book title}
+    \field{volume}{3}
+    \field{year}{2012}
+    \field{pages}{123\bibrangedash 200}
+  \endentry
+
+\endrefsection
+\endinput
+
