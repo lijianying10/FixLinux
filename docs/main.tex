@@ -45,12 +45,7 @@
 
 \usepackage[top=3cm,bottom=3cm,left=3.2cm,right=3.2cm,headsep=10pt,a4paper]{geometry} % Page margins
 \usepackage{CJKutf8}
-% 1. 如果使用CJKutf8
-% Hyperref中应使用unicode参数
-% 2. 如果使用CJK
-% Hyperref则使用CJKbookmarks参数
-% 可惜得到的PDF书签是乱码，建议弃用
-% 3. Unicode选项和CJKbookmarks不能同时使用 
+ 
 
 \usepackage{xcolor} % Required for specifying colors by name
 \definecolor{ocre}{RGB}{243,102,25} % Define the orange color used for highlighting throughout the book
@@ -80,6 +75,7 @@
 
 \begin{document}
 \begin{CJK*}{UTF8}{gbsn}
+
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
@@ -132,11 +128,11 @@ UBUNTU常见问题解答\par % Book title
 
 \chapterimage{chapter_head_2.pdf} % Chapter heading image
 
-\chapter{Text Chapter}
+\chapter{系统安装}
 
-\section{Paragraphs of Text}\index{Paragraphs of Text}
+\section{艾玛测试}\index{艾玛测试}
 
-\lipsum[1-7] % Dummy text
+前面老师是傻逼
 
 %------------------------------------------------
 

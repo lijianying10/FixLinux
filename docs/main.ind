@@ -2,7 +2,7 @@
 \vspace*{0.5cm}\nopagebreak
 \tikz\node at (0pt,0pt) [rounded corners=5pt,draw=ocre,fill=ocre!10,line width=1pt,inner sep=5pt]{\parbox{\linewidth-2\fboxsep-2\fboxrule-2pt}{\centering\large\sffamily\bfseries\textcolor{black}{C}}};\vspace*{0.2cm}\nopagebreak
 
-  \item Citation\dotfill \hyperpage{6}
+  \item Citation\dotfill \hyperpage{5}
   \item Corollaries\dotfill \hyperpage{8}
 
   \indexspace
@@ -30,10 +30,10 @@
 \vspace*{0.5cm}\nopagebreak
 \tikz\node at (0pt,0pt) [rounded corners=5pt,draw=ocre,fill=ocre!10,line width=1pt,inner sep=5pt]{\parbox{\linewidth-2\fboxsep-2\fboxrule-2pt}{\centering\large\sffamily\bfseries\textcolor{black}{L}}};\vspace*{0.2cm}\nopagebreak
 
-  \item Lists\dotfill \hyperpage{6}
-    \subitem Bullet Points\dotfill \hyperpage{6}
-    \subitem Descriptions and Definitions\dotfill \hyperpage{6}
-    \subitem Numbered List\dotfill \hyperpage{6}
+  \item Lists\dotfill \hyperpage{5}
+    \subitem Bullet Points\dotfill \hyperpage{5}
+    \subitem Descriptions and Definitions\dotfill \hyperpage{5}
+    \subitem Numbered List\dotfill \hyperpage{5}
 
   \indexspace
 \vspace*{0.5cm}\nopagebreak
@@ -45,7 +45,6 @@
 \vspace*{0.5cm}\nopagebreak
 \tikz\node at (0pt,0pt) [rounded corners=5pt,draw=ocre,fill=ocre!10,line width=1pt,inner sep=5pt]{\parbox{\linewidth-2\fboxsep-2\fboxrule-2pt}{\centering\large\sffamily\bfseries\textcolor{black}{P}}};\vspace*{0.2cm}\nopagebreak
 
-  \item Paragraphs of Text\dotfill \hyperpage{5}
   \item Problems\dotfill \hyperpage{9}
   \item Propositions\dotfill \hyperpage{8}
     \subitem Several Equations\dotfill \hyperpage{8}
@@ -71,5 +70,11 @@
 \tikz\node at (0pt,0pt) [rounded corners=5pt,draw=ocre,fill=ocre!10,line width=1pt,inner sep=5pt]{\parbox{\linewidth-2\fboxsep-2\fboxrule-2pt}{\centering\large\sffamily\bfseries\textcolor{black}{V}}};\vspace*{0.2cm}\nopagebreak
 
   \item Vocabulary\dotfill \hyperpage{9}
+
+  \indexspace
+\vspace*{0.5cm}\nopagebreak
+\tikz\node at (0pt,0pt) [rounded corners=5pt,draw=ocre,fill=ocre!10,line width=1pt,inner sep=5pt]{\parbox{\linewidth-2\fboxsep-2\fboxrule-2pt}{\centering\large\sffamily\bfseries\textcolor{black}{�}}};\vspace*{0.2cm}\nopagebreak
+
+  \item 艾玛测试\dotfill \hyperpage{5}
 
 \end{theindex}

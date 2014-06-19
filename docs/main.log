@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=pdflatex 2014.5.4)  22 MAY 2014 21:54
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/W32TeX) (format=pdflatex 2014.5.4)  27 MAY 2014 09:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**main.tex
+**main
 (./main.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
@@ -1528,85 +1528,85 @@ Package biblatex Warning: 'babel' detected but 'csquotes' missing.
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C00/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C05/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C09/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C10/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C20/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C19/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C40/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C42/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C43/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C50/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C52/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C49/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C60/mj/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C61/mj/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C63/mj/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C64/mj/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C65/mj/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C70/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C31/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C32/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C33/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C34/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C35/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C36/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C37/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C80/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C81/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C01/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C11/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C21/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C41/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for C62/song/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 81.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C00/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C05/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C09/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C10/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C20/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C19/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C40/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C42/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C43/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C50/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C52/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C49/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C60/mj/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C61/mj/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C63/mj/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C64/mj/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C65/mj/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C70/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C31/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C32/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C33/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C34/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C35/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C36/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C37/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C80/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C81/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C01/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C11/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C21/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C41/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for C62/song/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 76.
+LaTeX Font Info:    ... okay on input line 76.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 76.
  (d:/texlive/2012/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
@@ -1658,7 +1658,7 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 \makeMPintoPDFobject=\count388
 \everyMPtoPDFconversion=\toks42
 )
-LaTeX Info: Redefining \microtypecontext on input line 81.
+LaTeX Info: Redefining \microtypecontext on input line 76.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -1679,8 +1679,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (./main.bbl)
-Package biblatex Info: Reference section=0 on input line 81.
-Package biblatex Info: Reference segment=0 on input line 81.
+Package biblatex Info: Reference section=0 on input line 76.
+Package biblatex Info: Reference segment=0 on input line 76.
 
 (d:/texlive/2012/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -1699,7 +1699,7 @@ e
 ))
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box54
-Package hyperref Info: Link coloring OFF on input line 81.
+Package hyperref Info: Link coloring OFF on input line 76.
 
 (d:/texlive/2012/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
@@ -1709,9 +1709,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count389
 )
-LaTeX Info: Redefining \ref on input line 81.
-LaTeX Info: Redefining \pageref on input line 81.
-LaTeX Info: Redefining \nameref on input line 81.
+LaTeX Info: Redefining \ref on input line 76.
+LaTeX Info: Redefining \pageref on input line 76.
+LaTeX Info: Redefining \nameref on input line 76.
 
 (./main.out) (./main.out)
 \@outlinefile=\write6
@@ -1727,12 +1727,12 @@ File: UTF8.enc 2012/05/07 4.8.3
 (d:/texlive/2012/texmf-dist/tex/latex/cjk/texinput/utf8/UTF8.chr
 File: UTF8.chr 2012/05/07 4.8.3
 )
-LaTeX Font Info:    Try loading font information for T1+pag on input line 92.
+LaTeX Font Info:    Try loading font information for T1+pag on input line 89.
 
 (d:/texlive/2012/texmf-dist/tex/latex/psnfss/t1pag.fd
 File: t1pag.fd 2001/06/04 font definitions for T1/pag.
 )
-LaTeX Font Info:    Try loading font information for C70+gbsn on input line 93.
+LaTeX Font Info:    Try loading font information for C70+gbsn on input line 90.
 
 
 (d:/texlive/2012/texmf-dist/tex/latex/cjk/texinput/utf8/c70gbsn.fd
@@ -1745,32 +1745,33 @@ File: c70gbsn.fdx 2012/05/07 4.8.3
 File: Pictures/background.pdf Graphic file (type pdf)
 
 <use Pictures/background.pdf>
-Package pdftex.def Info: Pictures/background.pdf used on input line 102.
+Package pdftex.def Info: Pictures/background.pdf used on input line 99.
 (pdftex.def)             Requested size: 584.18106pt x 835.11795pt.
  [1
 
+
 {d:/texlive/2012/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Pictures/back
 ground.pdf>]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 106.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 103.
 
 
 (d:/texlive/2012/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 106.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 103.
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--104
+
+ []
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 106--107
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
 
  []
 
@@ -1778,12 +1779,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 111--112
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 123.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 120.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
 LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/pag/b/n' tried instead on input line 123.
+(Font)              Font shape `T1/pag/b/n' tried instead on input line 120.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <20.74> not available
-(Font)              Font shape `T1/pag/db/n' tried instead on input line 123.
+(Font)              Font shape `T1/pag/db/n' tried instead on input line 120.
  (./main.toc
 LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <12> not available
 (Font)              Font shape `T1/pag/b/n' tried instead on input line 5.
@@ -1806,56 +1807,54 @@ LaTeX Font Info:    Font shape `T1/pag/b/n' in size <10.95> not available
  [4]
 Chapter 1.
 \c@ttl@toc@default=\count390
-<Pictures/chapter_head_2.pdf, id=239, 3581.38pt x 1790.69pt>
+<Pictures/chapter_head_2.pdf, id=255, 3581.38pt x 1790.69pt>
 File: Pictures/chapter_head_2.pdf Graphic file (type pdf)
 
 <use Pictures/chapter_head_2.pdf>
-Package pdftex.def Info: Pictures/chapter_head_2.pdf used on input line 135.
+Package pdftex.def Info: Pictures/chapter_head_2.pdf used on input line 132.
 (pdftex.def)             Requested size: 597.50787pt x 298.75726pt.
  (./main.ptc
 LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <9> not available
 (Font)              Font shape `T1/pag/b/n' tried instead on input line 8.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <9> not available
 (Font)              Font shape `T1/pag/db/n' tried instead on input line 8.
-) [5
+)
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 14
+8.
 
-
- <./Pictures/chapter_head_2.pdf>]
-LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 15
-1.
- (d:/texlive/2012/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
+(d:/texlive/2012/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 15
-1.
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 14
+8.
 
 (d:/texlive/2012/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 15
-1.
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 14
+8.
 
 (d:/texlive/2012/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 15
-1.
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 14
+8.
 
 (d:/texlive/2012/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 151.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 148.
 
 
 (d:/texlive/2012/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 148.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 148.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 148.
 
 (d:/texlive/2012/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
@@ -1864,72 +1863,75 @@ File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 148.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 148.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 148.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 172.
- [6]
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 169.
+ [5
+
+
+ <./Pictures/chapter_head_2.pdf>] [6
+
+]
 Chapter 2.
 File: Pictures/chapter_head_2.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_2.pdf>
-Package pdftex.def Info: Pictures/chapter_head_2.pdf used on input line 181.
+Package pdftex.def Info: Pictures/chapter_head_2.pdf used on input line 178.
 (pdftex.def)             Requested size: 597.50787pt x 298.75726pt.
  (./main.ptc)
-Package mdframed Info: mdframed works in twoside mode on input line 190.
+Package mdframed Info: mdframed works in twoside mode on input line 187.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theoerem header of amsthm
-(mdframed)              on input line 190.
+(mdframed)              on input line 187.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 190.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 187.
 LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <10> not available
-(Font)              Font shape `T1/pag/b/n' tried instead on input line 190.
+(Font)              Font shape `T1/pag/b/n' tried instead on input line 187.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <10> not available
-(Font)              Font shape `T1/pag/db/n' tried instead on input line 190.
-Package mdframed Info: mdframed works in twoside mode on input line 201.
+(Font)              Font shape `T1/pag/db/n' tried instead on input line 187.
+Package mdframed Info: mdframed works in twoside mode on input line 198.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theoerem header of amsthm
-(mdframed)              on input line 201.
-Package mdframed Info: mdframed works in twoside mode on input line 211.
+(mdframed)              on input line 198.
+Package mdframed Info: mdframed works in twoside mode on input line 208.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theoerem header of amsthm
-(mdframed)              on input line 211.
- [7
-
-]
+(mdframed)              on input line 208.
+ [7]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 240.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 237.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 240.
-Package mdframed Info: mdframed works in twoside mode on input line 249.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 237.
+Package mdframed Info: mdframed works in twoside mode on input line 246.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theoerem header of amsthm
-(mdframed)              on input line 249.
+(mdframed)              on input line 246.
 LaTeX Font Info:    Font shape `T1/pag/bx/n' in size <6> not available
-(Font)              Font shape `T1/pag/b/n' tried instead on input line 284.
+(Font)              Font shape `T1/pag/b/n' tried instead on input line 281.
 LaTeX Font Info:    Font shape `T1/pag/b/n' in size <6> not available
-(Font)              Font shape `T1/pag/db/n' tried instead on input line 284.
+(Font)              Font shape `T1/pag/db/n' tried instead on input line 281.
  [8]
-Package mdframed Info: mdframed works in twoside mode on input line 304.
+Package mdframed Info: mdframed works in twoside mode on input line 301.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theoerem header of amsthm
-(mdframed)              on input line 304.
+(mdframed)              on input line 301.
  [9] [10
 
 ]
 Chapter 3.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 332.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 329.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
  (./main.ptc)
-<Pictures/placeholder.jpg, id=362, 351.3125pt x 193.72375pt>
+<Pictures/placeholder.jpg, id=390, 351.3125pt x 193.72375pt>
 File: Pictures/placeholder.jpg Graphic file (type jpg)
 
 <use Pictures/placeholder.jpg>
-Package pdftex.def Info: Pictures/placeholder.jpg used on input line 355.
+Package pdftex.def Info: Pictures/placeholder.jpg used on input line 352.
 (pdftex.def)             Requested size: 175.6558pt x 96.86163pt.
  [11 <./Pictures/placeholder.jpg>] [12
 
@@ -1937,7 +1939,7 @@ Package pdftex.def Info: Pictures/placeholder.jpg used on input line 355.
 File: Pictures/chapter_head_1.pdf Graphic file (type pdf)
 
 <use Pictures/chapter_head_1.pdf>
-Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 363.
+Package pdftex.def Info: Pictures/chapter_head_1.pdf used on input line 360.
 (pdftex.def)             Requested size: 597.50787pt x 298.77907pt.
  [13] [14
 
@@ -1983,68 +1985,99 @@ Overfull \hbox (2.20001pt too wide) in paragraph at lines 46--47
  []
 
 
-Overfull \hbox (2.20001pt too wide) in paragraph at lines 56--57
+Overfull \hbox (2.20001pt too wide) in paragraph at lines 55--56
 [][] 
  []
 
 
-Overfull \hbox (2.20001pt too wide) in paragraph at lines 62--63
+Overfull \hbox (2.20001pt too wide) in paragraph at lines 61--62
 [][] 
  []
 
 
-Overfull \hbox (2.20001pt too wide) in paragraph at lines 71--72
+Overfull \hbox (2.20001pt too wide) in paragraph at lines 70--71
+[][] 
+ []
+
+! Argument of \CJK@XXX has an extra }.
+<inserted text> 
+                \par 
+l.76 ...e\sffamily\bfseries\textcolor{black}{è}}};
+                                                  \vspace*{0.2cm}\nopagebreak
+? 
+Runaway argument?
+! Paragraph ended before \CJK@XXX was complete.
+<to be read again> 
+                   \par 
+l.76 ...e\sffamily\bfseries\textcolor{black}{è}}};
+                                                  \vspace*{0.2cm}\nopagebreak
+? 
+
+Overfull \hbox (2.20001pt too wide) in paragraph at lines 76--77
 [][] 
  []
 
 [15
 
+] [16
+
 ])
 \tf@ptc=\write8
 \openout8 = `main.ptc'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 384.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 384.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 381.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 381.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 384.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 384.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 381.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 381.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: AC15ABBFE72491C7DDEB60678953F425;1818.
+(rerunfilecheck)             Checksum: 793CF455949FF4FA2470D523F2E2199F;1852.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 29519 strings out of 493488
- 503480 string characters out of 3144749
+ 29666 strings out of 493488
+ 506647 string characters out of 3144749
  801283 words of memory out of 3000000
- 31953 multiletter control sequences out of 15000+200000
- 113716 words of font info for 228 fonts, out of 3000000 for 9000
+ 32086 multiletter control sequences out of 15000+200000
+ 121765 words of font info for 236 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 58i,15n,57p,853b,3130s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 58i,15n,57p,849b,3137s stack positions out of 5000i,500n,10000p,200000b,50000s
 {d:/texlive/2012/texmf-dist/fonts/enc/dvips/base/8r.enc}<d:/texlive/2012/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2012/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2012/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmr10.pfb><d:/texlive/2012/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy10.pfb><d:/texlive/2012/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu
-5e.pfb><d:/texlive/2012/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu67.pfb><d:/tex
-live/2012/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7b.pfb><d:/texlive/2012/texm
-f-dist/fonts/type1/arphic/gbsnu/gbsnu89.pfb><d:/texlive/2012/texmf-dist/fonts/t
-ype1/arphic/gbsnu/gbsnu8d.pfb><d:/texlive/2012/texmf-dist/fonts/type1/arphic/gb
-snu/gbsnu95.pfb><d:/texlive/2012/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu98.pf
-b><d:/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><d
-:/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><d:/te
-xlive/2012/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb><d:/texlive/2012/texmf
--dist/fonts/type1/urw/avantgar/uagd8a.pfb><d:/texlive/2012/texmf-dist/fonts/typ
-e1/urw/avantgar/uagk8a.pfb><d:/texlive/2012/texmf-dist/fonts/type1/urw/symbol/u
-syr.pfb><d:/texlive/2012/texmf-dist/fonts/type1/urw/symbol/usyr.pfb><d:/texlive
-/2012/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><d:/texlive/2012/texmf-dist/f
-onts/type1/urw/times/utmr8a.pfb><d:/texlive/2012/texmf-dist/fonts/type1/urw/tim
-es/utmri8a.pfb>
-Output written on main.pdf (15 pages, 397995 bytes).
+50.pfb><d:/texlive/2012/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu52.pfb><d:/tex
+live/2012/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu5b.pfb><d:/texlive/2012/texm
+f-dist/fonts/type1/arphic/gbsnu/gbsnu5e.pfb><d:/texlive/2012/texmf-dist/fonts/t
+ype1/arphic/gbsnu/gbsnu66.pfb><d:/texlive/2012/texmf-dist/fonts/type1/arphic/gb
+snu/gbsnu67.pfb><d:/texlive/2012/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu6d.pf
+b><d:/texlive/2012/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu73.pfb><d:/texlive/
+2012/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu7b.pfb><d:/texlive/2012/texmf-dis
+t/fonts/type1/arphic/gbsnu/gbsnu7c.pfb><d:/texlive/2012/texmf-dist/fonts/type1/
+arphic/gbsnu/gbsnu7e.pfb><d:/texlive/2012/texmf-dist/fonts/type1/arphic/gbsnu/g
+bsnu80.pfb><d:/texlive/2012/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu82.pfb><d:
+/texlive/2012/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu88.pfb><d:/texlive/2012/
+texmf-dist/fonts/type1/arphic/gbsnu/gbsnu89.pfb><d:/texlive/2012/texmf-dist/fon
+ts/type1/arphic/gbsnu/gbsnu8b.pfb><d:/texlive/2012/texmf-dist/fonts/type1/arphi
+c/gbsnu/gbsnu8d.pfb><d:/texlive/2012/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu9
+0.pfb><d:/texlive/2012/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu95.pfb><d:/texl
+ive/2012/texmf-dist/fonts/type1/arphic/gbsnu/gbsnu97.pfb><d:/texlive/2012/texmf
+-dist/fonts/type1/arphic/gbsnu/gbsnu98.pfb><d:/texlive/2012/texmf-dist/fonts/ty
+pe1/public/amsfonts/symbols/msam10.pfb><d:/texlive/2012/texmf-dist/fonts/type1/
+public/amsfonts/symbols/msbm10.pfb><d:/texlive/2012/texmf-dist/fonts/type1/publ
+ic/rsfs/rsfs10.pfb><d:/texlive/2012/texmf-dist/fonts/type1/urw/avantgar/uagd8a.
+pfb><d:/texlive/2012/texmf-dist/fonts/type1/urw/avantgar/uagk8a.pfb><d:/texlive
+/2012/texmf-dist/fonts/type1/urw/symbol/usyr.pfb><d:/texlive/2012/texmf-dist/fo
+nts/type1/urw/symbol/usyr.pfb><d:/texlive/2012/texmf-dist/fonts/type1/urw/times
+/utmb8a.pfb><d:/texlive/2012/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><d:/te
+xlive/2012/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (16 pages, 433819 bytes).
 PDF statistics:
- 499 PDF objects out of 1000 (max. 8388607)
- 385 compressed objects within 4 object streams
- 78 named destinations out of 1000 (max. 500000)
- 62261 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 575 PDF objects out of 1000 (max. 8388607)
+ 431 compressed objects within 5 object streams
+ 79 named destinations out of 1000 (max. 500000)
+ 62317 words of extra memory for PDF output out of 74296 (max. 10000000)
 
