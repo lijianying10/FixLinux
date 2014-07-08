@@ -33,8 +33,32 @@ WEB QQ（Web QQ腾讯公司推出的使用网页方式上QQ的服务，特点是
 
 + 点击smart QQ后会弹出如下界面，直接登陆即可
 
-![w7](/picture/wqq/w7.png)
+![w7](../picture/wqq/w7.png)
 
 + 陆后界面如下，非常类似于手机QQ
 
-![w8](/picture/wqq/w8.ng)
+![w8](../picture/wqq/w8.png)
+
+
+## Lwqq安装及使用方法
+
+### 安装篇：
+
++ 在左边栏找到软件中心并单击打开
+
+![lw1](../picture/lwqq/l1.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
