@@ -89,8 +89,13 @@ sudo apt-get install pidgin-lwqq
 
 
 
+## 至于wineqq 当然会介绍啦
+[下载地址](http://www.longene.org/forum/viewtopic.php?t=4700)
 
+### 优点： 界面漂亮
+### 缺点： 兼容性插件 64bit需要装32比他的库 ， 不稳定。
 
+## 注意： 进入网页下载后一定要看安装说明。
 
 
 
