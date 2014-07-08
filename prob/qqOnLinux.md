@@ -1,5 +1,5 @@
 # Linux系统下QQ使用方法
-# AUTH:服部半藏
+# AUTH:服部半藏 EDIT:PHILO
 QQ作为常用的即时通讯工具，在我们的生活中扮演了很重要的角色。但是QQ在windows，MAC OSX和移动设备上使用起来很方便，但是在Linux上的表现却不尽如人意。下面就介绍几种常用的方法。
 ## Web QQ
 WEB QQ（Web QQ腾讯公司推出的使用网页方式上QQ的服务，特点是无需下载和安装QQ软件，只要能打开Web QQ的网站就可以登录QQ与好友保持联系。具有Web产品固有的便利性，同时在Web上最大限度的保持了客户端软件的操作习惯。更丰富的好友动态、更开阔的聊天模式、更实时的资讯查看、还有休闲音乐伴随，Web QQ将为我们提供一个愉快的网络起点。2009年9月15日正式上线。）
@@ -46,12 +46,46 @@ WEB QQ（Web QQ腾讯公司推出的使用网页方式上QQ的服务，特点是
 
 + 在左边栏找到软件中心并单击打开
 
-![lw1](../picture/lwqq/l1.png)
+![lw1](../picture/lwqq/l1.jpg)
 
 
++ 搜索软件pidgin Internet message并安装
+
+![lw2](../picture/lwqq/l2.jpg)
 
 
++ 依次输入下面三条命令
 
+```bash
+sudo add-apt-repository ppa:lainme/pidgin-lwqq
+sudo apt-get update
+sudo apt-get install pidgin-lwqq 
+#end of install
+```
+
+
+### 使用篇
++ 首先在侧边栏找到pidgin并单击打开
+
+![lw3](../picture/lwqq/l3.jpg)
+
++ 看到欢迎界面后单击“add”按钮添加账号
+
+![lw4](../picture/lwqq/l4.jpg)
+
+
++ 在Protocol下拉菜单里找到WebQQ并单击
+
+![lw5](../picture/lwqq/l5.jpg)
+
++ 输入用户名和密码单击”add“即可登录
+
+![lw6](../picture/lwqq/l6.jpg)
+
+
++ 登陆后效果图
+
+![lw7](../picture/lwqq/l7.jpg)
 
 
 
