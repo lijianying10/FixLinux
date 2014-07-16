@@ -1,252 +1,144 @@
-# 2014年7月2日开始了我的LFS编译之旅
-原来作者就是喜欢都吧东西拼成一起来做。
-另外这玩儿也挺有兴趣虽然没有对Linux做任何定制但是但是对理解Linux是非常有用的 。
-所以做了LFS这个项目
+#LFS编译过程必备辅助手册
 
-#2014年7月3日
+## 前言
+LFS（Linux from scratch）是从源代码开始编译Linux操作系统。如果需要深度定制Linux操作系统或者需要
+更加深入学习Linux的学习者可以从这里开始您的旅途。这份意义的深渊不必多说。
+同时也希望您能加入我们一起开始这段旅程[→加入我们←](http://ubtamator.github.io/)
 
-## package: BC
-This package provides an arbitrary precision numeric processing language. It satisfies a requirement needed when
-building the Linux kernel.
-我已经看到各种包包的介绍了。
-我感觉这个还是蛮有意思的。而且还是任意精度的 计算
-而且还是Linux的内核，这个好啊
+从7月初开始我们团队里面两个人为了更加深入的学习Linux方面的知识。也为了瞻仰LFS大神们的光辉。
+开始了LFS的旅程，因为LFS文档内容写的虽然是非常的具体但是。多多少少对于一些Linux新手来说造成很多困扰。
 
-## 浏览第一遍。
-其实这本书就是告诉你各种前期准备然后各种软件包的编译方法而已。
-特么的前期准备还是比较简单的。
-就是编译的时间肯定很长，貌似还是要3个小时左右吧。没有求解器长！
+因此我们团队做完LFS之后写了这篇**辅助**性质的说明，对新手遇到问题的时候提供帮助。
+### 进行LFS旅程的前提条件
+1. 非常熟悉Linux操作
+1. 有一定的Linux开发基础
+1. 再LFS之前有过一定的软件编译经验。
+1. 有一定的英文基本功，除了看手册之外，有的时候抛出错误的时候应该有google查找并解决错误的能力。
 
-## 之后的计划
-我肯定是不会去做那种仔细看书的了。
-我已经了解书中的架构什么的
-根据自己的理解来
+### 文档使用方法：
+1. 首先先完全性的扫一遍本文档大概大概记住位置就可以了
+1. 然后扫一遍LFS文档要掌握LFS大概过程，至少要了解每个章节的目的。
+1. 当你进行到的章节跟本篇文章对应上的时候请看看我们团队遇到的坑。
 
-## 开始实践
-### 分区
-```bash
-#我是通过虚拟机搞的。我添加了一块硬盘。之后dev标号为sdb
-fdisk /dev/sdb
-n #添加新分区一路回车包括硬盘号码大小什么的都是正常的最后结果为sdb1 整块大小 primary分区 
-w #将改变写入分区
-#退出程序之后
-mkfs -t ext4 /dev/sdb1 #分区之后格式化就行了
+### LFS全过程概括
+1. 对磁盘跟用户的准备
+2. 建立temp系统
+3. 编译LFS系统
+4. 最后调整
+
+### LFS 编译完成的成果
+LFS再编译完成的最后除了Linux基础内核目录结构（bin etc lib proc dev等等这些）还有一个tools这个目录（过程概括中的2），它的存在是为了编译LFS整个系统的。所以在第五章这一部分中,就是利用ubuntu或是centos主机系统的编译环境（称之为HOST）来编译出tools这个目录下的编译环境。
+**`提示`**：其实制作LFS所有用到工具链接，就是在ubuntu或centos下编译出一个新的交叉编译器(就是/tools目录下的所有工具)，而这个新的交叉编译器在编译出来后，就不会依赖于现有操作系统编译器和库文件(ubuntu or centos)，此时我们就可以利用这个全新的交叉编译工具(/tools目录下的所有工具)制造属于我们自己的Linux了，利用这新的工具，从源码开始编译出所有我们需要的软件和库，最后编译Linux内核，设置bash脚本，启动脚本，tmpfs文件系统需要的配置文件，整个LFS的过程就结束了。
+
+##A： Linux发行版本的选择
+1. CentOS 6.3 （虚拟机双硬盘）
+2. Ubuntu 14.04 with GCC4.4（64bit） （笔记本电脑+双硬盘+LFS系统构建在SSD硬盘上）
+3. 在以上两种Linux发行版上分别进行编译运行,且最终都取得成功。
+4. 使用LFS7.5源码进行编译
+
+##B：前四章的内容：硬盘分区、用户准备篇
+主机所用操作系统的准备工作: (ubuntu14.04 64位下需要安装的软件)
+> 1.在ubunt下安装bison（ubuntu下默认没有安装）
+``` 
+sudo apt-get install bison 
+#LFS 手册要求
+``` 
+2.不能用gcc4.8，需要换成gcc4.4（ubuntu14.04默认gcc4.8)
 ```
+ sudo apt-get install gcc-4.4 g++-4.4
+ sudo rm `which gcc`
+ sudo rm  `which g++`
+ sudo ln -sv /usr/bin/gcc-4.4  /usr/bin/gcc
+ sudo ln -sv /usr/bin/g++-4.4  /usr/bin/g++
+```
+`这里CentOS没有什么特别要说的。主要因为全部都用默认的，就可以了。各种依赖C6-Media就可以解决`
+3.到LFS官网上下载LFS7.5的所有源码:
+[ftp://ftp.lfs-matrix.net/pub/lfs/lfs-packages/](ftp://ftp.lfs-matrix.net/pub/lfs/lfs-packages/)
 
-###部署空间
-```bash
-#写入bashrc：
+####1.磁盘分区准备
+1.  plan: 准备一个10到20GB的分区，这一步请谨慎操作
+1.  action: 创建分区(表)并格式化
+`创建分区表请使用fdisk , 如果需要图形界面下的请使用GPartion如果这两种工具都不会请到windows下分区（无需格式化）`
+```
+#格式化分区
+sudo mkfs -v -t ext4  /dev/sdaX #这里的X是填上自己的分区号
+```
+PS:因为现在计算机的内存都比较大，所以可以不需要swap分区。（第一次进行LFS，一个根(/)分区就够了，等以后有经验了，再进行多分区的操作）
+
+####2.用户准备
+
+直接参考手册上的来就行了。
+小建议：`PS1='[\[\e[32m\]#\##\[\e[31m\]\u@\[\e[36m\]\h \w]\$\[\e[m\]' PS1修改成这个变量看着能舒服点。` 
+
+
+`注意`：每次开机，或是重启后，在进入lfs用户前，都要对 LFS变量进行检查，查看LFS=/mnt/lfs变量是否存在，然后对lfs使用的分区进行挂载
+### `前四章的小结：`
+>1.  这一部分没有什么难点，准别磁盘是因为要让LFS作为独立的硬盘来启动。新建分区、格式化分区、准备lfs用户是Linux操作的基础素质。
+**`注意`** ：为了下面的编译过程能更快，可以在输入make命令时在后面加入-j4，使用4个进程进行同时编译，在多核处理器上编译的速度有明显提升
+
+
+---
+####`开始进入编译代码的环境`（每次开机或重启动后需要进行下面步骤进入lfs用户环境）
+>1.  首先导入LFS变量
+```
 export LFS=/mnt/lfs
-
-mkdir /mnt/lfs/tools
-ln -sv $LFS/tools /
-
-mkdir /mnt/lfs/sources
-ln -sv $LFS/sources /
+#建议放到/etc/profile下方便一直用
 ```
+2.  然后挂载LFS的分区
+```
+sudo mount -v -t ext4 /dev/sdaX $LFS  #X为你的LFS硬盘分区号
+```
+3.  最后就可以切换到lfs用户了
+```
+su - lfs  #注意中间这个 - 符号是一定要的，代表为lfs用户启动一个login shell 
+```
+`补充`：通常我们在开机后，启动的第一个shell称之为login shell,当进入GUI界面后，不需要输入密码启动的shell称之为non-login shell。这两种shell是有区别的。大家都知道shell的运行是需要环境变量的支持的。配置这些环境变量的文件就是配置shell工作环境的文件。两种shell在读取配置文件时有很大的不同，下面是总结它们分别读取哪些配置文件：
+ 1.  login shell 启动--->读取/etc/porfile文件--->读取~/.bash_profile文件
+ 2. no-login shell 启动--->读取~/.bashrc文件
+ 3.   ```exec env -i /bin/bash```命令会开启一个全新的non-login shell。
+ 
+**`注意`**：每次重新开机或重启后都需要进行下面的步骤，切换到lfs用户，因为对于新手来说，不可能一天就编译完lfs的所有源，可以看下而把步骤保存到一个文件中，每次重启系统进行LFS之前，参照以上步骤进入到LFS编译环境
 
-### 添加用户
-```bash
+##C: 第五章的内容：编译得到\$LFS/tools/目录下面的工具包
+- `第一步`，编译出一个全新的与主机系统无关的工具链接。（这些工具链包含了：compiler(就是我们常用的gcc,g++),assembler(就是把汇编程序变成a.obj文件的工具)，linker(就是把很多*.obj文件和库文件链接成可运行文件a.out的工具)，还有各类库文件(为后面编译其它的软件提供基础设施)，当然还有大量的其它工具）
+- `第二步`，得用第一步编译出来的工具，编译其它的工具（这里可以看出，在制作LFS的过程中，编译的先后顺序是非常生要的，因为有了鸡，才能下蛋）
+- `注意1`：上面两步编译出来的工具都会安装到  \$LFS/tools目录下面（也就是/mnt/lfs/tools目录下面）。LFS手册中把这个称之为临时的文件系统，就是因为\$LFS/tools这个目录在第6章结束时就会被删除，因为$LFS/tools已经使用完了，没有利用价值了。
+- `注意 2`：参照LFS手册上的指令进行编译，基本不会遇到错误，因为编译代码的步骤就是老三样：```configure && make  $$make install```,但是有一点，一定要注意，所有的安装包一打要打补丁，因为LFS手册没有强调打补丁的过程，所以自己如果发现这个源码包有补丁文件，一定要记得打上。
+- `注意 3`：因为需要编译的软件太多，到最后你可能不会愿意自已每个字母都输入到命令行进行编译，所以通常会直接复制LFS手册中的命令。但是复制时，请一定注意先把指令复制到一个空的文件编辑器中，然后检查一下，复制过来的内容是否正确，因为从PDF文件复制到文本中的内容，格式会发生很大的变化。这一点在你尝试的过程中就会发现了。然后在文本编译器或是vim中进行编辑后，再复制到lfs用户的命令行中。
 
-groupadd lfs
-useradd -s /bin/bash -g lfs -m -k /dev/null lfs #这些基础的东西我就不解释了
-#添加到.bashrc
-PS1='[\[\e[32m\]#\##\[\e[31m\]\u@\[\e[36m\]\h \w]\$\[\e[m\]'  #这是我的习惯哈哈。我就喜欢这样
-stty stop ''
+- `注意4`：在编译perl时，按照官方文档打补丁会出现readonly的错误，下面是是正确的操作命令
+```
+cd /mnt/lfs/sources
+tar xvf perl-5.16.2
+cd perl-5.16.2/hints
+cp linux.sh linux.sh.org
+cd ..
+patch -Np1 -i ../perl-5.16.2-libc-1.patch
+cd hints
+diff linux.sh linux.sh.org   #输出打补丁情况，则为正常打补丁，编译过程参考手册
+```
+- `注意5`：手册上的configure的位置一定刚要注意有三种情况，第一种是再源代码目录之外进行configure，第二种是再源代码目录里面进行configure，第三种（特殊情况）是libstdc++是再gcc源码目录的子目录里面进行configure。所以再执行命令之前一定刚要看好执行命令的前提条件，不妨思考一下LFS的笔者为什么这么写。
+- `温馨提示`： 第一次编译GCC时可能会遇到环境问题，不要气馁，失败是正常的（我失败了10次以上）不过我们可以保证LFS手册上的命令质量是非常高的。经过亲身测试绝对没有错误。
+
+####进入第六章前的准备 
+由于第六章所有的操作都是在root用户下进行的，所以要把第五章编译好的\$LFS/tools目录改为root用户所有，命令如下：(下面的命令，请用root身份运行)
+```
 export LFS=/mnt/lfs
-
-#给权限准备开始工作了
-chown -v lfs $LFS/tools
-chown -v lfs $LFS/sources
-
-export MAKEFLAGS='-j 4'我是4核心处理器。所以就这么搞了。
-```
-### 小结
-这部分还是挺简单，准备磁盘用户还有环境啊工作空间什么的。之后马上就要开始编译了。好紧张啊
-
-### binutil
-没问题
-### GCC
-做到gcc config的时候出现问题
-```bash
-../gcc-4.8.2/configure  --target=$LFS_TGT  --prefix=/tools  --with-sysroot=$LFS  --with-newlib  --without-headers  --with-local-prefix=/tools  --with-native-system-header-dir=/tools/include  --disable-nls  --disable-shared  --disable-multilib  --disable-decimal-float  --disable-threads  --disable-libatomic  --disable-libgomp  --disable-libitm  --disable-libmudflap  --disable-libquadmath  --disable-libsanitizer  --disable-libssp  --disable-libstdc++-v3  --enable-languages=c,c++  --with-mpfr-include=$(pwd)/../gcc-4.8.2/mpfr/src  --with-mpfr-lib=$(pwd)/mpfr/src/.libs
-```
-最后我再gcc的源代码文件夹里面新建了build
-之后运行书里面的脚本 TODO还是没弄明白是什么意思这个脚本
-config脚本
-```bash
-../configure  --target=$LFS_TGT  --prefix=/tools  --with-sysroot=$LFS  --with-newlib  --without-headers  --with-local-prefix=/tools  --with-native-system-header-dir=/tools/include  --disable-nls  --disable-shared  --disable-multilib  --disable-decimal-float  --disable-threads  --disable-libatomic  --disable-libgomp  --disable-libitm  --disable-libmudflap  --disable-libquadmath  --disable-libsanitizer  --disable-libssp  --disable-libstdc++-v3  --enable-languages=c,c++  --with-mpfr-include=../mpfr/src  --with-mpfr-lib=$(pwd)/mpfr/src/.libs
-```
-研究之后希望通过设定环境变量来解决 error: libmpfr not found or uses a different ABI 问题
-理由是manual中提到
- if MPFR is already installed but it is not in your default library search path, the --with-mpfr configure option should be used. See also --with-mpfr-liband --with-mpfr-include. 
-因此通过希望设定环境变量解决
-```bash
-export C_INCLUDE_PATH=$C_INCLUDE_PATH:/mnt/lfs/tars/gcc-4.8.2/mpfr/src 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/mnt/lfs/tars/gcc-4.8.2/build/mpfr/src/.libs
-```
-#### 结果这么做还是徒劳的。
-# 2014年7月4日 继续旅程
-最后直接改成绝对路径来config成功了
-```bash
-../configure --target=x86_64-lfs-linux-gnu --prefix=/tools --with-sysroot=/mnt/lfs --with-newlib --without-headers --with-local-prefix=/tools --with-native-system-header-dir=/tools/include --disable-nls --disable-shared --disable-multilib --disable-decimal-float --disable-threads --disable-libatomic --disable-libgomp --disable-libitm --disable-libmudflap --disable-libquadmath --disable-libsanitizer --disable-libssp --disable-libstdc++-v3 --enable-languages=c,c++ --with-mpfr-include=/mnt/lfs/tars/gcc-4.8.2/mpfr/src --with-mpfr-lib=/mnt/lfs/tars/gcc-4.8.2/build/mpfr/src/.libs
-```
-之后遇到无厘头问题
-```bash
-configure:3565: checking for suffix of object files
-configure:3587: /mnt/lfs/tars/gcc-4.8.2/build/./gcc/xgcc -B/mnt/lfs/tars/gcc-4.8.2/build/./gcc/ -B/tools/x86_64-lfs-linux-gnu/bin/ -B/tools/x86_64-lfs-linux-gnu/lib/ -isystem /tools/x86_64-lfs-linux-gnu/include -isystem /tools/x86_64-lfs-linux-gnu/sys-include    -c -g -O2  conftest.c >&5
-/mnt/lfs/tars/gcc-4.8.2/build/./gcc/as: line 87: exec: --: invalid option
-exec: usage: exec [-cl] [-a name] [command [arguments ...]] [redirection ...]
-configure:3591: $? = 1
-configure: failed program was:
-| /* confdefs.h */
-| #define PACKAGE_NAME "GNU C Runtime Library"
-| #define PACKAGE_TARNAME "libgcc"
-| #define PACKAGE_VERSION "1.0"
-| #define PACKAGE_STRING "GNU C Runtime Library 1.0"
-| #define PACKAGE_BUGREPORT ""
-| #define PACKAGE_URL "http://www.gnu.org/software/libgcc/"
-| /* end confdefs.h.  */
-|
-| int
-| main ()
-| {
-|
-|   ;
-|   return 0;
-| }
-configure:3605: error: in `/mnt/lfs/tars/gcc-4.8.2/build/x86_64-lfs-linux-gnu/libgcc':
-configure:3608: error: cannot compute suffix of object files: cannot compile
-```
-错误命令as经过查看是错误的软连接到binutils替换掉就好了
-（这个乱七八糟的改名还有软连接太简单了不写代码了）
-最后整理的时候还是写了一下
-```bash
-[#14#lfs@Dev /mnt/lfs/tars/gcc-4.8.2/build]$mv gcc/as gcc/as#
-[#15#lfs@Dev /mnt/lfs/tars/gcc-4.8.2/build]$ln -s /tools/bin/as gcc/as
+chown -R  root:root $LFS/tools 
 ```
 
-### 遭遇错误 x86_64-lfs-linux-gnu-ar 找不到
-没关系 alias 直接搞定试试
-```bash
-alias x86_64-lfs-linux-gnu-ar=/tools/bin/ar
-```
-结果这种办法是远远不够的。
-
-### 继续遭遇错误 x86_64-lfs-linux-gnu-ranlib 找不到
-两个问题一起解决
-```bash
-#file: /bin/x86_64-lfs-linux-gnu-ranlib
-#!/bin/bash
-/tools/bin/ranlib $@
-
-#file: /bin/x86_64-lfs-linux-gnu-ar
-#!/bin/bash
-/tools/bin/ar $@
-```
-这俩文件弄完了之后别忘了chmod +x 啊
-
-### 小结一共遇到4个错误
-+ config的坑，最后通过绝对路径搞定
-+ 那个无厘头的as错误通过使用binutils搞定了（我还在想为啥用binutils做编译的开头呢。）
-+ 找不到ar的那个命令 通过bin下写脚本搞定
-+ 找不到ranlib的那个命令 通过bin下写脚本搞定
-
-### 两个遗留问题
-+ 开始的脚本没读懂
-+ 36页最后的命令没看懂就没有做。
-
-## Linux-3.13.3 API Headers 安装
-毫无难度
-## glibc 
-首先检查rpc的header我看脚本之后自己手动检查了一下发现有就不管了。
-然后正常编译
-
-先试试这个
-```bash
-../configure --prefix=/tools --host=$LFS_TGT --build=$(../glibc-2.19/scripts/config.guess) --disable-profile --enable-kernel=2.6.32 --with-headers=/tools/include libc_cv_forced_unwind=yes libc_cv_ctors_header=yes libc_cv_c_cleanup=yes
-```
-
-config的时候出错有说不能包含自己目录的。
-直接
-```bash
-unset LD_LIBRARY_PATH
-```
-
-make的时候selinux出错了。但是我感觉selinux没有必要啊。
-我就改了一下config
-```bash
-../configure --prefix=/tools --host=x86_64-lfs-linux-gnu --build= --disable-profile --enable-kernel=2.6.32 --with-headers=/tools/include libc_cv_forced_unwind=yes libc_cv_ctors_header=yes libc_cv_c_cleanup=yes --without-selinux
-```
-后面加了一个--without-selinux结果make通过了
+##D: 开启第六章,构建真正的LFS系统
+从第六章开始我们就正事开始编译LFS系统的文件了大概几十个模块只要跟着脚本走一般都不会遇到问题。
+只是有几点需要注意。
 
 
-### Libstdc++-4.8.2
-编译的时候很正常的出现了问题。
-```bash
-../configure --host=x86_64-lfs-linux-gnu --prefix=/tools --disable-multilib --disable-shared --disable-nls --disable-libstdcxx-threads --disable-libstdcxx-pch --with-gxx-include-dir=/tools/lib/gcc/x86_64-lfs-linux-gnu/4.8.2/include  CXX=/tools/bin/x86_64-lfs-linux-gnu-g++
-```
-config的解决思路，首先刚开始的时候很正常的一个报错
-之后我就感觉应该自己找include的位置自己添加
-添加之后因为是4.8版本的include我就觉得不能用自己的4.4的编译器编译了。但是如果不用自己的gcc linker就会出问题
-所以只改了CXX换成4.8版本的 
-实测有效！
-
-### binutils 二周目编译
-```bash
-CC=/tools/bin/x86_64-lfs-linux-gnu-gcc
-AR=/tools/bin/x86_64-lfs-linux-gnu-gcc-ar
-RANLIB=/tools/bin/x86_64-lfs-linux-gnu-gcc-ranlib
-```
-config正常，
-最后一个脚本是为了后面预留出来一个ld
-### GCC4.8.2 二周目
-
-我的系统我还再做别的开发不能改环境
-所以  改绝对路径了
-```bash
-cat gcc/limitx.h gcc/glimits.h gcc/limity.h > `dirname $(/tools/bin/x86_64-lfs-linux-gnu-gcc -print-libgcc-file-name)`/include-fixed/limits.h
-```
-
-之后make的时候发现之前编译的gcc还是有问题的。
-不能ld这是什么情况
-自己开始做测试解决问题
-# 2014年7月7日 征程
-##### 后来发现问题不能连接ld什么的。卧槽我头晕了。我不知道怎么回事。后来我合计合计是不是找不到新版的binuils啊。然后我就。给心比哪一的binutils加入到path里面了。就好了
-
-```bash
-export PATH=$PATH:/tools/bin
-```
-表示搞定
-
-##### 然后configure 过不去了。还是找不到ld我打算安装binutils
-我觉得pass1里面的内容都是很基础的。意思应该是让你更新系统吧，我觉得这样做是最稳定的。
-
-## 新的思路
-后来我就发现 pass1 跟pass2到底是什么意思了。原来是因为我们自己要构建自己的小系统之后才能编译。
-版本号都跟ubuntu 14.04是对应上的爱我草。那不就正好是pass1过了的意思么。人家都帮我做完了我干啥还要做一遍啊。
-
-### 重头开始就这么定了
-## glibc 
-
-
-根据情况来。好使
-```bash
-../configure --prefix=/tools --host=x86_64-lfs-linux-gnu --build=x86_64-unknown-linux-gnu --disable-profile --with-headers=/tools/include libc_cv_forced_unwind=yes libc_cv_ctors_header=yes libc_cv_c_cleanup=yes
-```
-## libc++
-根据情况来。
-```bash
- ../libstdc++-v3/configure --host=x86_64-lfs-linux-gnu --prefix=/tools --disable-multilib --disable-shared --disable-nls --disable-libstdcxx-threads --disable-libstdcxx-pch --with-gxx-include-dir=/tools/include/
-```
-## binutils PASS2
-来吧，关键的地方试试。
-
-```bash
-#config
-../configure --prefix=/tools --disable-nls --with-lib-path=/tools/lib --with-sysroot
-```
-
-make报错
-conftest.c:10:25: fatal error: isl/version.h: No such file or directory
-
+>1.  这个是需要正常运行的操作系统所以所有的patch补丁包一定都要打上。
+1. perl的patch包需要参考网上的一些文章来解决read only 的问题。（GOOGLE问题的第一个链接就是答案）
+1. 最开始的chroot是需要用root权限来实行的。
+1. dev下的设备挂载是要用lfs用户的最高权限来执行mount（也就是说需要给lfs用户添加到sudoers里面）
+1. 有的时候你需要终止你自己的工作。等其他时间继续编译lfs，你需要重新挂载dev目录 和chroot
+1. 再编译内核的时候你需要生成.config文件如果这个文件你自己调整的话始终都非非常费劲的对于内核新手来说最好的方案就是找个发型版本（eg.ubuntu 14.04）复制/boot里面的内核配置文件，不然会出现很多内核驱动不支持的现象。比如说网卡
+1. 再编译完了之后有很多脚本需要你进行执行的。
+      ** 但是一定要注意，脚本的选择比较多。选择合适你的脚本，另外脚本挺长，有的需要翻页。**
+1. /etc/sysconfig/console 这个脚本不需要建立。
+1. 再设定grub的脚本的时候一定要注意你自己bootlfs时候的参数是多少（比如说新建虚拟机之后你几块硬盘几号分区什么的。）
