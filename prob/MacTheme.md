@@ -17,7 +17,9 @@ Ubuntu 14.04 下的MAC OS X	 主题安装
 ![music](http://smashingweb.info/wp-content/uploads/2014/04/ubuntu-1404-mac-os-x-theme-music.jpg)
 
 ## 第一步：下载壁纸
-预览图：
+
+`预览图：`
+
 ![preview](http://smashingweb.info/wp-content/uploads/2014/04/mac-os-x-wallpapers-for-ubuntu-1404.jpg)
 
 第一步要做的事仅仅是下载Mac OS X 的壁纸，下载连接再 [这里](http://drive.noobslab.com/data/Mac-13.10/MBuntu-Wallpapers.zip)这个压缩包的大小有39.2MB。
