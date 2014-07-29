@@ -166,8 +166,11 @@ sudo fc-cache -f -v
 ![](http://smashingweb.info/wp-content/uploads/2014/04/ubuntu-1404-mac-osx-fonts.jpg)
 
 ##小伙伴们的测试结果
-
+##更多帮助登陆[ubtamator](http://ubtamator.github.io/)
+##寻找小伙伴，群：55958311
 
 > 翻译：PHILO 
+
 > 内容调整：PHILO
+
 > 原文地址：http://smashingweb.info/mac-os-x-theme-for-ubuntu-14-04-macbuntu-transformation-pack/#userconsent#
