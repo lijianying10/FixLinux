@@ -166,6 +166,10 @@ sudo fc-cache -f -v
 ![](http://smashingweb.info/wp-content/uploads/2014/04/ubuntu-1404-mac-osx-fonts.jpg)
 
 ##小伙伴们的测试结果
+![](../picture/MacTheme/1.jpg)
+![](../picture/MacTheme/2.jpg)
+![](../picture/MacTheme/3.jpg)
+![](../picture/MacTheme/4.jpg)
 ##更多帮助登陆[ubtamator](http://ubtamator.github.io/)
 ##寻找小伙伴，群：55958311
 
