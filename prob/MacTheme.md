@@ -2,7 +2,7 @@
 Ubuntu 14.04 下的MAC OS X	 主题安装	
 ====================
 
-安装 MAC OS X 主题会帮助你的 Ubuntu 14.04 看起来更像MAC OS X。在这里我们介绍的Macbuntu安装包包含了GTK 主题，这些主题是专门为ubuntu unity定制的。图标主题可以为ubuntu 14.04使用，包括登陆界面引导启动的背景，登陆用户，甚至包括了lightdm 使用webkit的登陆界面。这个安装包是nobslab再bluedxca93的帮助下从gnome-look.org网站上开发的。
+安装 MAC OS X 主题会帮助你的 Ubuntu 14.04 看起来更像MAC OS X。在这里我们介绍的Macbuntu安装包包含了GTK 主题，这些主题是专门为ubuntu unity定制的。图标主题可以为ubuntu 14.04使用，包括登陆界面引导启动的背景，登陆用户，甚至包括了lightdm 使用webkit的登陆界面。这个安装包是nobslab在bluedxca93的帮助下从gnome-look.org网站上开发的。
 
 最终效果图：
 ![demo](http://smashingweb.info/wp-content/uploads/2014/04/ubuntu-1404-mac-os-x-theme.jpg)
@@ -22,10 +22,10 @@ Ubuntu 14.04 下的MAC OS X	 主题安装
 
 ![preview](http://smashingweb.info/wp-content/uploads/2014/04/mac-os-x-wallpapers-for-ubuntu-1404.jpg)
 
-第一步要做的事仅仅是下载Mac OS X 的壁纸，下载连接再 [这里](http://drive.noobslab.com/data/Mac-13.10/MBuntu-Wallpapers.zip)这个压缩包的大小有39.2MB。
-`解压之后右键点击桌面>>修改背景图片>>选择下载的背景`
+第一步要做的事仅仅是下载Mac OS X 的壁纸，下载连接在 [这里](http://drive.noobslab.com/data/Mac-13.10/MBuntu-Wallpapers.zip)这个压缩包的大小有39.2MB。
+`解压之后右键点击桌面->修改背景图片->选择下载的背景`
 ## 安装主题修改工具
-为了修改GTK主题，图标，系统主题，光标，字体我们需要安装unity tweak。要安装unity tweak再ubuntu14.04上通过使用如下命令：
+为了修改GTK主题，图标，系统主题，光标，字体我们需要安装unity tweak。要安装unity tweak在ubuntu14.04上通过使用如下命令：
 
 ```shell
 sudo apt-get install unity-tweak-tool
@@ -57,9 +57,9 @@ sudo apt-get install mac-icons-v3
 ![](http://smashingweb.info/wp-content/uploads/2014/04/select-mac-icons-ubuntu-1404.jpg)
 ![](http://smashingweb.info/wp-content/uploads/2014/04/select-mac-cursors-ubuntu-1404.jpg)
 
-现在unity左面看起来就像Mac了。你已经有了mac的图标 mac的窗口样式，mac的鼠标指针样式。
+现在unity桌面看起来就像Mac了。你已经有了mac的图标，mac的窗口样式，mac的鼠标指针样式。
 
-## 安装类似Mac OS X样式的DOCKY在ubuntu14.04上
+## 安装类似Mac OS X样式的DOCK在ubuntu14.04上
 
 Docky是再UBUNTU平台上一个非常轻量级的类似Mac OS X 的dock。 它拥有mac一样的鼠标浮动效果。想要安装需要在终端上运行如下代码：
 ```shell
