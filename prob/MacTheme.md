@@ -34,7 +34,9 @@ sudo add-apt-repository ppa:tualatrix/ppa
 sudo apt-get update
 sudo apt-get install ubuntu-tweak
 ```
-效果图：
+
+`效果图：`
+
 ![](http://smashingweb.info/wp-content/uploads/2014/04/Unity_tweak_tool_1.jpeg)
 
 ##在ubuntu14.04上安装Mac OS X主题
@@ -64,10 +66,12 @@ sudo apt-get install docky
 ### 安装Mac doc主题：
 下载 [Mac 主题](http://drive.noobslab.com/data/Mac-14.04/Mac-OS-Lion%28Docky%29.tar)从unity启动器上运行docky。你就能看到docky运行再你的屏幕底端了，点击第一个docky配置按钮，选择`3D mode`点击下载主题按钮在上面选择Buyi-idock主题，现在你将会获得Mac OS X很像的dock了。
 
-配置图：
+`配置图：`
+
 ![](http://smashingweb.info/wp-content/uploads/2014/04/ubuntu-1404-mac-osx-dock.jpg)
 
-效果图：
+`效果图：`
+
 ![](http://smashingweb.info/wp-content/uploads/2014/04/docky-theme-ubuntu-1404.jpg)
 
 ##隐藏unity 启动器
@@ -87,7 +91,8 @@ cd /usr/share/locale/en/LC_MESSAGES; sudo msgfmt -o unity.mo ~/Mac.po;rm ~/Mac.p
 cd && wget -O Ubuntu.po http://drive.noobslab.com/data/Mac-14.04/change-name-on-panel/ubuntu.po
 cd /usr/share/locale/en/LC_MESSAGES; sudo msgfmt -o unity.mo ~/Ubuntu.po;rm ~/Ubuntu.po;cd
 ```
-效果图：
+
+`效果图：`
 
 ![](http://smashingweb.info/wp-content/uploads/2014/04/ubuntu-1404-mac-logo.jpg)
 
