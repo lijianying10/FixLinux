@@ -5,12 +5,15 @@ Ubuntu 14.04 下的MAC OS X	 主题安装		{#welcome}
 安装 MAC OS X 主题会帮助你的 Ubuntu 14.04 看起来更像MAC OS X。在这里我们介绍的Macbuntu安装包包含了GTK 主题，这些主题是专门为ubuntu unity定制的。图标主题可以为ubuntu 14.04使用，包括登陆界面引导启动的背景，登陆用户，甚至包括了lightdm 使用webkit的登陆界面。这个安装包是nobslab再bluedxca93的帮助下从gnome-look.org网站上开发的。
 
 最终效果图：
-![](http://smashingweb.info/wp-content/uploads/2014/04/ubuntu-1404-mac-os-x-theme.jpg)
+![demo](http://smashingweb.info/wp-content/uploads/2014/04/ubuntu-1404-mac-os-x-theme.jpg)
 
 `files:`
+
 ![files](http://smashingweb.info/wp-content/uploads/2014/04/ubuntu-1404-mac-os-x-theme-desktop.jpg)
 
+
 `music`
+
 ![music](http://smashingweb.info/wp-content/uploads/2014/04/ubuntu-1404-mac-os-x-theme-music.jpg)
 
 ## 第一步：下载壁纸
@@ -47,6 +50,7 @@ sudo apt-get install mac-icons-v3
 ![](http://smashingweb.info/wp-content/uploads/2014/04/select-mac-theme-ubuntu-1404.jpg)
 ![](http://smashingweb.info/wp-content/uploads/2014/04/select-mac-icons-ubuntu-1404.jpg)
 ![](http://smashingweb.info/wp-content/uploads/2014/04/select-mac-cursors-ubuntu-1404.jpg)
+
 现在unity左面看起来就像Mac了。你已经有了mac的图标 mac的窗口样式，mac的鼠标指针样式。
 
 ## 安装类似Mac OS X样式的DOCKY在ubuntu14.04上
@@ -84,6 +88,7 @@ cd && wget -O Ubuntu.po http://drive.noobslab.com/data/Mac-14.04/change-name-on-
 cd /usr/share/locale/en/LC_MESSAGES; sudo msgfmt -o unity.mo ~/Ubuntu.po;rm ~/Ubuntu.po;cd
 ```
 效果图：
+
 ![](http://smashingweb.info/wp-content/uploads/2014/04/ubuntu-1404-mac-logo.jpg)
 
 ##替换延迟滚动条为正常滚动条
