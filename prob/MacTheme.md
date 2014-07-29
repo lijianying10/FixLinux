@@ -1,5 +1,5 @@
 
-Ubuntu 14.04 下的MAC OS X	 主题安装		{#welcome}
+Ubuntu 14.04 下的MAC OS X	 主题安装	
 ====================
 
 安装 MAC OS X 主题会帮助你的 Ubuntu 14.04 看起来更像MAC OS X。在这里我们介绍的Macbuntu安装包包含了GTK 主题，这些主题是专门为ubuntu unity定制的。图标主题可以为ubuntu 14.04使用，包括登陆界面引导启动的背景，登陆用户，甚至包括了lightdm 使用webkit的登陆界面。这个安装包是nobslab再bluedxca93的帮助下从gnome-look.org网站上开发的。
@@ -48,7 +48,9 @@ sudo apt-get install mac-ithemes-v3
 sudo apt-get install mac-icons-v3
 ```
 现在打开刚才安装的工具来选择主题，在GTK主题上选择MBuntu。再本地tab上选择Mbuntu-osx在光标tab上选择Mac-cursors.
-如图所示
+
+`如图所示`
+
 ![](http://smashingweb.info/wp-content/uploads/2014/04/select-mac-theme-ubuntu-1404.jpg)
 ![](http://smashingweb.info/wp-content/uploads/2014/04/select-mac-icons-ubuntu-1404.jpg)
 ![](http://smashingweb.info/wp-content/uploads/2014/04/select-mac-cursors-ubuntu-1404.jpg)
