@@ -15,6 +15,7 @@ kernel? 提示需要安装Linux kernel header
 ```shell
 sudo apt-get update
 sudo apt-get install build-essential linux-headers-$(uname -r)
+#CentOS 下  包的名字叫 kernel-headers
 ```
 第一行更新软件源
 
