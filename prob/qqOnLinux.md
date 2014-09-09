@@ -97,6 +97,25 @@ sudo apt-get install pidgin-lwqq
 
 ## 注意： 进入网页下载后一定要看安装说明。
 
+```
+首先安装wineQQ2013地址（http://pan.baidu.com/s/1c0y7Ros）
+如果是32位操作系统，第一次使用时输入命令
+sudo bash /opt/longene/qq/qq.sh
+然后即可运行，以后运行时按windows键，输入QQ，看到QQ的图标单击即可
+
+
+
+对于64位操作系统，由于缺少32位库，因此操作相对麻烦
+依次执行命令
+sudo apt-get install lib32ncurses5
+sudo apt-get install lib32z1
+sudo apt-get install lib32bz2-1.0
+sudo apt-get install libgtk2.0-0:i386
+执行完之后就可以像32位系统一样操作了，第一次使用时输入命令
+sudo bash /opt/longene/qq/qq.sh
+然后即可运行，以后运行时按windows键，输入QQ，看到QQ的图标单击即可
+```
+
 
 
 ## Android QQ
