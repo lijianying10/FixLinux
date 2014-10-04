@@ -321,3 +321,30 @@ function decrypt_data($privatekey,$data)
     return $decrypt_res;
 }
 ```
+## JSONP 跨域通讯
+我们经过千辛万苦经过加密终于能做到通讯安全了。
+当然我们的下一步是通过JSONP 的get通讯来实现跨域通讯啦。
+经过测试：我们的JS中最长的Case url长度是3956
+再加上跨域url callbac参数，经过测试正好差20到4095 （一般的URI长度限制为4K）
+
+```js
+$.ajax({  
+	type:"get",  
+	async:false,  // 设置同步通讯或者异步通讯
+	url:"http://22500e31b5a12457.sinaapp.com/ubtamat/getPubKey?c=hknHQKIy3dyeeajyAwZ+raUkV1ezFbgU8zk+54cNQtrcEGozUjXpYhbC6fxz2hCOgp9feIsM1xKJFm5pkAGQ2UcUOc5EJNCAz6L0mXkZbTBmh3PufWxOE7TaicqRCRtZGGNB2qpm2WruXjYg1lPcrPz/rhFZx4DSJvEHkCm7ZU0=......(加密后的结果太长，省略)",  
+	dataType:"jsonp",
+	jsonp: "",
+}); 
+```
+
+
+```php
+     header("Content-type: application/javascript; charset=utf-8");
+     $response = "console.log('test response!')";
+     $callback = $this->input->GET('callback');
+     echo $callback.$response;
+```
+PHP代码是CI框架controler中的部分代码
+并且经过了必要的裁剪。
+更加细节的参数都放到GET里面就可以了。
+处理之后按照上面的形式处理返回值就ok
