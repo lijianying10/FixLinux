@@ -1,15 +1,25 @@
-# 首先要生成密匙对
+#PHP-JS-RSA加密
+###AUTH：PHILO EMAIL：lijianying12 at gmail.com
+
+基于POST GET 的http通讯虽然非常成熟，但是很容易被人监听。
+再这篇文章中我们为了降低服务器的成本，没有使用SSL而使用
+RSA加密。文章中的php加密解密 JS的加密解密 互相加密解密
+都能验证通过。
+
+其中PHP依赖常见的OPENSSL LIB 。 JS依赖 jsencrypt。
+
+
+## 首先要生成密匙对
 ```shell
 openssl genrsa 1024 > private.key
 openssl rsa -in private.key -pubout > public.key
 ```
 
-#JS的RSA加密流程
+##JS的RSA加密流程
 
-## 需要的代码在附件里面了
-## 如果想下载最新版本请移步到github：[jsencrypt](https://github.com/travist/jsencrypt) 
+下载最新版本请移步到github：[jsencrypt](https://github.com/travist/jsencrypt) 代码在目录BIN下面是否用压缩的根据情况决定。
 
-## 生成KEY
+### 生成KEY
 ```js
 var keySize = 1024; //加密强度
 var crypt = new JSEncrypt({default_key_size: keySize});  //RSA 操作对象
@@ -24,7 +34,7 @@ crypt.getPrivateKey();
 crypt.getPublicKey();
 ```
 
-## 客户端加密场景：
+### 客户端加密场景：
 ```js
 var crypt1 = new JSEncrypt(); //新建rsa对象
         var publickey = '\
@@ -39,7 +49,7 @@ crypt1.setPublicKey(publickey );//添加来自服务端的publickey
 crypt1.encrypt('abc'); //返回值为加密后的结果
 ```
 
-## 客户端解密场景:
+### 客户端解密场景:
 ```js
         var privatekey = '-----BEGIN RSA PRIVATE KEY-----\
         MIICXQIBAAKBgQC3N8LJFqlsa6loCgFpgZVMr/SxDMQY7pr0euNQfh2g+UVPbB0M\
@@ -63,7 +73,7 @@ crypt2.getPublicKey();//Tip 我们是不需要存储publickey的直接用private
 crypt2.decrypt("MeUqWB5LwTh8crzPqbZtEtKuZxYvPWH9CTCChK1qoBzIgIXGPCdzNMbiH0cCYHl5qWSERIDOgDIgv4dXsIMjEJ5q0cp/qNQYHM5va0iw0UvKvQB1E8aWtY2nFEPy4F+ArQ0Mj/ijr/CntEP1jHKC3WU9nu2kYrBIBnbj14Bs+kI=");//调用解密方法
 ```
 
-###但是虽然写到了这里，加密方面还是不够用，因为1024长度的RSA加密最多只能加密长度为117的字符串。而URL长度最多为4k因此这里我们要让加密长度达到2691以达到能用的程度。
+####但是虽然写到了这里，加密方面还是不够用，因为1024长度的RSA加密最多只能加密长度为117的字符串。而URL长度最多为4k因此这里我们要让加密长度达到2691以达到能用的程度。
 
 那么这种加密长度大概能容纳多少数据呢？
 我们借助[json-generator](http://www.json-generator.com/)来帮忙生成JSON
@@ -204,7 +214,7 @@ crypt2.decrypt("MeUqWB5LwTh8crzPqbZtEtKuZxYvPWH9CTCChK1qoBzIgIXGPCdzNMbiH0cCYHl5
 
 表单json能达到这么长已经是很极端的情况了。因此这种方法绝对是够用的。
 
-##长表单内容加解密方法：
+###长表单内容加解密方法：
 ```js
 function encrypt_data(publickey,data)
 {
@@ -234,9 +244,9 @@ function decrypt_data(privatekey,data)
 ```
 
 
-# PHP的RSA加密
+## PHP的RSA加密
 
-## php加密解密类
+### php加密解密类
 
 首先要检查phpinfo里面有没有openssl支持
 
@@ -274,14 +284,14 @@ class mycrypt {
 
 **密匙文件位置问题，是放到访问接口的附近就可以了如果是CI的话就放到index.php旁边就行了。**
 
-## 类的使用
+### 类的使用
 ```php
 $rsa = new mycrypt();  
 echo $rsa -> encrypt('abc');  
 echo $rsa -> decrypt('W+ducpssNJlyp2XYE08wwokHfT0bm87yBz9vviZbfjAGsy/U9Ns9FIed684lWjYyyofi/1YWrU0Mp8vLOYi8l6CfklBY=');  
 ```
 
-##长数据加密解密
+###长数据加密解密
 ```php
 function encrypt_data($publickey,$data)
 {
