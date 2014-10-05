@@ -375,10 +375,10 @@ $.ajax({
 
 服务器端代码
 ```php
-     header("Content-type: application/javascript; charset=utf-8");
-     $response = "jpc({'msg':123456})";
-     $callback = $this->input->GET('callback');
-     echo $callback.$response;
+header("Content-type: application/javascript; charset=utf-8");
+$response = "jpc({'msg':123456})";
+$callback = $this->input->GET('callback');
+echo $callback.$response;
 ```
 
 ## 通过加密实现整个跨域安全通讯过程
