@@ -348,3 +348,37 @@ PHP代码是CI框架controler中的部分代码
 并且经过了必要的裁剪。
 更加细节的参数都放到GET里面就可以了。
 处理之后按照上面的形式处理返回值就ok
+如果你配置成功了，你将会再网页的控制台上看到自己动态的，
+或者像我一样静态的控制台输出。
+如果要是想获取数据到网页的话还是要借助**回调函数**来实现
+
+## JSONP跨域获取通讯结果
+
+请看下面代码：
+
+客户端代码
+```js
+var global = 1;
+function jpc(result)
+{
+	global = result.msg;
+}
+
+$.ajax({  
+	type:"get",  
+	async:false,  // 设置同步通讯或者异步通讯
+	url:"http://22500e31b5a12457.sinaapp.com/ubtamat/getPubKey",  
+	dataType:"jsonp",
+	jsonp: "jpc",
+}); 
+```
+
+服务器端代码
+```php
+     header("Content-type: application/javascript; charset=utf-8");
+     $response = "jpc({'msg':123456})";
+     $callback = $this->input->GET('callback');
+     echo $callback.$response;
+```
+
+## 通过加密实现整个跨域安全通讯过程
