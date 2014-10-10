@@ -558,6 +558,9 @@ require_once_dir(APPPATH."/controllers/actions");
 因为时间仓促所以只能写到这里了。
 如果您发现了我文章中的bug欢迎发email批评指正。非常感谢！
 同时本方案也会成为我们开源社区linux52.com后台系统中的接口设计方案。
+当然我们社区所有维护的文档都会进行反复验证，如果出问题我们会及时更新。
+以维护文档的正确性。
+点击[=这=里=](https://github.com/lijianying10/FixLinux/blob/master/prob/PHP-RSA%E5%8A%A0%E5%AF%86%E8%B7%A8%E5%9F%9F%E9%80%9A%E8%AE%AF%E5%AE%9E%E6%88%98.md)查看文档最新版本。
 
 ##关键词
 php js rsa get jsonp 跨域 安全
