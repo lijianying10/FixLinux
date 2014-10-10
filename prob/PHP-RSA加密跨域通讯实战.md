@@ -8,6 +8,7 @@ RSA加密。文章中的php加密解密 JS的加密解密 互相加密解密
 
 其中PHP依赖常见的OPENSSL LIB 。 JS依赖 jsencrypt。
 
+特征：前后分离适合cdn加速 ，安全跨域更适合松散结构的网站。
 
 ## 首先要生成密匙对
 ```shell
@@ -391,41 +392,182 @@ echo $callback.$response;
 ###客户端方面：
 设计一个通讯类：只管跟服务器通讯。别的业务什么都不管。
 ```JS
+//create connection object.
 var ConnServ = new Object();
 
 ConnServ.tmpResponse = "not initial";
+
+//call back function register slot.
 ConnServ.CallBackFunction=function(){console.log(
-"call back function set error ! U must set a business call back function!"
+    "call back function set error ! U must set a business call back function!"
 )};
 
-//input only encrypt data!!!
+//input only encrypted data!!!
+//send data to server
 ConnServ.send=function(data)
 {
-data = data.replace(/\+/g,"$");  //replace all + as $
-$.ajax({
-type:"get",
-async:false,  // 设置同步通讯或者异步通讯
-url:"http://22500e31b5a12457.sinaapp.com/ubtamat?c="+data,
-dataType:"jsonp",
-jsonp: "jpc"
-});
-return "Send Finish";
+    data = data.replace(/\+/g,"$");  //replace all + as $
+    $.ajax({
+        type:"get",
+        async:false,  
+        url:"http://22500e317.sinaapp.com/ubtamat?c="+data,
+        dataType:"jsonp",
+        jsonp: "jpc"
+    });
+    return "Send Finish";
 }
 
+//default call back funcation
 function jpc(res)
 {
-ConnServ.tmpResponse = res.msg;
-ConnServ.CallBackFunction();
+    ConnServ.tmpResponse = res.msg;
+    ConnServ.CallBackFunction();
 }
 
+
+//public key store.
 ConnServ.getpublickey = function()
 {
-return "\-" +
-"----BEGIN PUBLIC KEY----- " +
-"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDD+nGlscA5TCMPjKnKWB2SN3mF " +
-"YEz0zl2SrgiAGjdD48jXuBu41FHDBkBnlM/mvvmGrAY7aoevDCtJxv2gkLoQWNsT " +
-"DHgHmPhx3VkvkOJTmrxr7tIZo0ewk6mDNvygvCBlfWMbC/otdqZ9mZzrw7cGVdQW " +
-"L7kwxrrqkoRL36NzKwIDAQAB " +
-"-----END PUBLIC KEY-----";
+    return "\-" +
+        "----BEGIN PUBLIC KEY----- " +
+...................................................
+        "-----END PUBLIC KEY-----";
 }
 ```
+在上面代码中请注意，RSA加密过后的字符串当中有一个非法字符+要转换成其他合法字符发送到服务器才可以。
+不然参数会错误。
+等传输到服务器中自己转换回来再解密就好了。
+
+###服务器端方面：
+首先我们接收到消息之后要对消息进行解密，之后根据报文内容选择服务器上的功能。然后把其他参数输入到业务类中执行即可。
+因此我们使用了命令模式来实现单一接口的丰富业务功能。
+其他的我们需要对CI框架的配置进行调整：
+首先global config里面需要调整 $config['global_xss_filtering'] = FALSE; 因为如果传输过来的报文解密不了就直接抛弃不进行处理（防止CC攻击第一层）这样就从url上防止了攻击的可能性。
+当然我们还是没有完全避免注入风险这时我们就需要再业务类里面调用安全模块：
+```php
+ $this->security->xss_clean()
+```
+来实现第二层的XSS攻击。这是服务器端设计主要需要说的位置。
+
+#### 服务器获取数据处理全过程
+1. 从get接口获得参数c的加密数据
+1. 对数据进行RSA解密。
+1. 判断数据包时间戳。如果超时直接抛弃（防止从浏览器记录中直接发送request到服务器，下面是安全方面的说明）
+	a. 首先如果不修改数据只修改时间戳不可能从截获的数据报文中实现，因为需要重新加密，如果想得到内容需要服务器上的privatekey解密保证安全
+	a. 如果数据包截获直接发送数据包在超时范围内直接获取数据包内容，也不能实现攻击，因为再客户端有临时RSA密匙对生成并且再发送的时候会同时发送publickey 给服务器做session的存储内容并且伪装客户的客户端没有privatekey所以获取任何关于登陆之后的消息根本无法解析。
+1. 对解密后的数据进行xss检查
+1. 解析报文中需要调用什么功能直接调用反射得到业务类的实例
+1. 调度业务类，并且把得到的参数赋值给业务执行函数的参数。
+
+#### 服务器处理数据过程只跟业务有关
+
+#### 服务器返回数据全过程
+1. 业务处理完成之后针对每一个用户的登陆情况对返回值进行加密。
+2. response
+
+#### 以上业务涉及的部分密码（给出的代码未涉及以上说的安全部分。）
+
+```php
+//CI 控制器里面的方法
+public function index()
+{
+	header("Content-Type: text/html;charset=UTF-8");
+	$callback = $this -> input->GET('callback');
+	$input_data = str_replace("$","+",$this->input->GET('c'));
+	$input_data =$this -> rsa->decrypt_data($input_data);
+	if($input_data == ""){return;}//如果数据不对解析就会失败，直接抛弃数据包，避免cracker构造数据包问题
+	//这里插入时间戳检查代码
+	//这插入xss检查
+	$output_data = command($input_data);
+	$response = "jpc({'msg':".$output_data."})";
+	$callback = $this->input->GET('callback');
+	echo $callback.$response;
+}
+```
+
+```php
+//命令模式中的业务调度方法
+function command($input)
+{
+    try
+    {
+        $obj_input = json_decode($input);
+        $action = $obj_input -> {"action"};
+        $business_action = new ReflectionClass($action);
+        $instance  = $business_action->newInstanceArgs();
+        $output = $instance->Action($obj_input);
+		//对output变量进行rsa加密
+        return "'".$output."'"; // here only accept string
+    }
+    catch(Exception $e)
+    {
+        return  "'".$e->getMessage()."'";
+    }
+}
+```
+
+#### 以下是配合业务进行的工具函数：
+```php
+//命令接口定义
+interface ICommand {
+    function Action($arg_obj);
+} 
+```
+
+```php
+//把此函数放到system/core/common.php
+//实现了输入一个文件夹就自动加载所有文件夹中的所有的类。
+if ( ! function_exists('require_once_dir'))
+{
+    function require_once_dir($path)
+    {
+        $dir_list = scandir($path);
+        foreach($dir_list as $file)
+        {
+            if ( $file != ".." && $file != "." )
+            {
+                require_once($path."/".$file);
+            }
+        }
+    }
+}
+
+//使用：
+//再application/config/autoload.php中添加类似如下代码：
+require_once_dir(APPPATH."/controllers/lib");
+require_once_dir(APPPATH."/controllers/actions");
+```
+
+通过以上基本方法，就可以自动实现。每一个业务都进行了rsa加密xss攻击过滤伪造数据包攻击。
+以及再response加密只能是固定客户端才能看到报文内容的全过程
+
+
+#### 数据包必须包含的要素：
+
+1. acton （业务名）
+1. req_time (请求时间)
+1. public_key (如果是注册跟登陆时候需要提交临时公匙)
+
+##总结
+因为时间仓促所以只能写到这里了。
+如果您发现了我文章中的bug欢迎发email批评指正。非常感谢！
+同时本方案也会成为我们开源社区linux52.com后台系统中的接口设计方案。
+
+##关键词
+php js rsa get jsonp 跨域 安全
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
