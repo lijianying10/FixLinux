@@ -384,4 +384,48 @@ echo $callback.$response;
 
 ## 实战
 从上文中，我们已经找到了整个加密过程方法了，但是距离实战还是有一定距离的。
-首先我们实战的话需要克服如下问题。
+首先我们实战的话需要克服接口比较少，功能比较多，单个接口维护用时比较长的问题。
+
+为了解决上面的问题我们做出如下设计。
+
+###客户端方面：
+设计一个通讯类：只管跟服务器通讯。别的业务什么都不管。
+```JS
+var ConnServ = new Object();
+
+ConnServ.tmpResponse = "not initial";
+ConnServ.CallBackFunction=function(){console.log(
+"call back function set error ! U must set a business call back function!"
+)};
+
+//input only encrypt data!!!
+ConnServ.send=function(data)
+{
+data = data.replace(/\+/g,"$");  //replace all + as $
+$.ajax({
+type:"get",
+async:false,  // 设置同步通讯或者异步通讯
+url:"http://22500e31b5a12457.sinaapp.com/ubtamat?c="+data,
+dataType:"jsonp",
+jsonp: "jpc"
+});
+return "Send Finish";
+}
+
+function jpc(res)
+{
+ConnServ.tmpResponse = res.msg;
+ConnServ.CallBackFunction();
+}
+
+ConnServ.getpublickey = function()
+{
+return "\-" +
+"----BEGIN PUBLIC KEY----- " +
+"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDD+nGlscA5TCMPjKnKWB2SN3mF " +
+"YEz0zl2SrgiAGjdD48jXuBu41FHDBkBnlM/mvvmGrAY7aoevDCtJxv2gkLoQWNsT " +
+"DHgHmPhx3VkvkOJTmrxr7tIZo0ewk6mDNvygvCBlfWMbC/otdqZ9mZzrw7cGVdQW " +
+"L7kwxrrqkoRL36NzKwIDAQAB " +
+"-----END PUBLIC KEY-----";
+}
+```
