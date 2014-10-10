@@ -1,8 +1,8 @@
-#PHP-JS-RSA加密
+#PHP-RSA加密跨域通讯实战
 ###AUTH：PHILO EMAIL：lijianying12 at gmail.com
 
 基于POST GET 的http通讯虽然非常成熟，但是很容易被人监听。
-并且如果使用跨域jsonp的通讯很容易在历史记录中发现通讯网址以及产数。为了克服这些问题，
+并且如果使用跨域jsonp的通讯很容易在历史记录中发现通讯网址以及参数。为了克服这些问题，
 并且降低服务器成本，我们没有使用SSL而使用
 RSA加密。文章中的php加密解密 JS的加密解密 互相加密解密
 都能验证通过。
@@ -470,7 +470,7 @@ ConnServ.getpublickey = function()
 1. 业务处理完成之后针对每一个用户的登陆情况对返回值进行加密。
 2. response
 
-#### 以上业务涉及的部分密码（给出的代码未涉及以上说的安全部分。）
+#### 以上业务涉及的部分代码（给出的代码未涉及以上说的安全部分。）
 
 ```php
 //CI 控制器里面的方法
@@ -543,7 +543,19 @@ require_once_dir(APPPATH."/controllers/lib");
 require_once_dir(APPPATH."/controllers/actions");
 ```
 
-通过以上基本方法，就可以自动实现。每一个业务都进行了rsa加密xss攻击过滤伪造数据包攻击。
+#### 以下是实现业务的例子：
+```php
+class register implements  ICommand{
+    public function Action($arg_obj)
+    {
+        return "we are do nothing: ".json_encode($arg_obj);
+    }
+}
+```
+
+通过以上基本方法，我们可以实现，只要业务继承我们声明的接口就可以开始写业务了。
+别的什么都不用管，专注于业务即可，其他的安全、IO等问题都已经一并解决。
+并且每一个业务都进行了rsa加密xss攻击过滤伪造数据包攻击。
 以及在response加密只能是固定客户端才能看到报文内容的全过程。
 但是一定要注意一点，注册这个业务后面要嵌套登陆进行，不然看不到返回值
 
