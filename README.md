@@ -1,11 +1,12 @@
 Linux 常见问题解答
 ==========
 
-### [Linux 网络配置](prob/Linux虚拟机网络配置.md)
+本文档库存在的目的：
+希望能提供一个可以及**时更新的，有人负责的，具有版本管理的，可信的**知识分享平台。
 
-### [Linux header 安装](prob/LinuxHeaderInstall.md)
+这里的文档肯定不是由我一个人写的，但是这里的文档肯定是可信的。我相信你的人写的。
 
-### [Linux系统下QQ使用方法](prob/qqOnLinux.md)
+未来的官方网站 linux52.com
+希望我能长久的坚持做下去。
 
-### [Ubuntu上手必看](https://github.com/yupengfei/Essay/blob/master/%E8%87%AA%E7%94%B1%E4%B8%96%E7%95%8C%E7%9A%84%E5%9C%B0%E5%9B%BE.mkd)
-
+LUKE！
