@@ -19,6 +19,7 @@ brew install automake
 pecl install redis
 pecl install memcache
 ```
+当然pecl 是php自动更新模块的程序，非常方便，我就专注于开发，我不想专注于环境。2333
 ## 服务启动：
 redis-server /usr/local/etc/redis.conf
 
