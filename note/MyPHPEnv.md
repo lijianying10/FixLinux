@@ -16,6 +16,8 @@ github在中国几乎用不了？ 还是我网速慢，反正是clone不回来�
 brew install redis 
 brew install memcache
 brew install automake
+pecl install redis
+pecl install memcache
 ```
 ## 服务启动：
 redis-server /usr/local/etc/redis.conf
