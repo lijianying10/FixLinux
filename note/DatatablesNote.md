@@ -22,3 +22,22 @@ $('#example').dataTable( {
 } );   
 ```
 加上上面注释的数据主要是因为DT不可以reinitial
+
+# 2014年12月1日补充
+
+还总是有那么几列不听话什么的。
+宽度上很不好看
+```javascript
+$('#example').dataTable( {
+"autoWidth": true,
+"data": dataset,
+"columns": [
+{ "title": "index","width": "5%"  },
+{ "title": "guid" },
+{ "title": "file" },
+{ "title": "Version"},
+{ "title": "author" }
+]
+} );   
+```
+
