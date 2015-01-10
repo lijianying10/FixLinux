@@ -342,3 +342,11 @@ commonPage.ExecuteTemplate(w, "tail", nil)
   1. 还有系统要生成的（只做追加的打开找不到文件就启动不了。）持久化数据。要touch（新建）好
   1. 心态，错误太多一个一个来，要有个好心态。
   1. 运气，妈妈问你为啥跪着看LiteIDE你就说。。。。。。
+
+## 来吧LOG
+  1. 注意在调试中Log的不可缺失性。
+  ```Golang
+  //ignore import
+  pillarsLog.PillarsLogger.Println()
+  // 包括log时间，报错代码位置，以及报错内容，祝调试好运！
+  ```
