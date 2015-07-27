@@ -17,6 +17,7 @@ Plugin 'wincent/command-t'
 Plugin 'Lokaltog/vim-powerline'
 call vundle#end()            " required
 filetype plugin indent on    " required
+set shiftwidth=4
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -40,6 +41,7 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports" "保存的时候自动运行goimports
 " 自动补全自动启动
 let g:neocomplete#enable_at_startup = 1
 
@@ -81,9 +83,16 @@ nmap <F7> :NERDTreeToggle<CR>
 nmap <C-c> :q<CR>
 nmap <C-0> :tabn<CR>
 nmap <C-9> :tabp<CR>
+nmap <F6> :w<CR>:GoLint<CR>
+nmap <F5> :GoDef<CR>
+nmap <C-z> :undo<CR>
 
 set backspace=indent,eol,start " 让backspace能正常工作的配置
 
 " 这是对PowerLine的设置
 set laststatus=2
 let g:Powerline_symbols='unicode'
+
+" tab设置
+set ts=4
+set expandtab
