@@ -86,6 +86,7 @@ nmap <C-9> :tabp<CR>
 nmap <F6> :w<CR>:GoLint<CR>
 nmap <F5> :GoDef<CR>
 nmap <C-z> :undo<CR>
+nmap <F4> :GoErrCheck<CR>
 
 set backspace=indent,eol,start " 让backspace能正常工作的配置
 
