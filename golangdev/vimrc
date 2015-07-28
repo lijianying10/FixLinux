@@ -81,12 +81,15 @@ let g:tagbar_type_go = {
 nmap <F8> :TagbarToggle<CR>
 nmap <F7> :NERDTreeToggle<CR>
 nmap <C-c> :q<CR>
-nmap <C-0> :tabn<CR>
-nmap <C-9> :tabp<CR>
+nmap <F3> :tabn<CR>
+nmap <F2> :tabp<CR>
 nmap <F6> :w<CR>:GoLint<CR>
 nmap <F5> :GoDef<CR>
 nmap <C-z> :undo<CR>
 nmap <F4> :GoErrCheck<CR>
+nmap <C-s> :w<CR>
+imap <F1> :pc<CR>
+nmap <F1> :pc<CR>
 
 set backspace=indent,eol,start " 让backspace能正常工作的配置
 
