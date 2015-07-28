@@ -91,6 +91,7 @@ nmap <F4> :GoErrCheck<CR>
 set backspace=indent,eol,start " 让backspace能正常工作的配置
 
 " 这是对PowerLine的设置
+set encoding=utf-8
 set laststatus=2
 let g:Powerline_symbols='unicode'
 
