@@ -92,10 +92,10 @@ imap <M-p> <esc>:TagbarToggle<CR>i
 nmap <M-u> :NERDTreeToggle<CR>
 imap <M-u> <esc>:NERDTreeToggle<CR>
 nmap <C-c> :q<CR>
-nmap <M-i> :tabn<CR>
-imap <M-i> <esc>:tabn<CR>
-nmap <M-o> :tabp<CR>
-imap <M-o> <esc>:tabp<CR>
+nmap <M-o> :tabn<CR>
+imap <M-o> <esc>:tabn<CR>
+nmap <M-i> :tabp<CR>
+imap <M-i> <esc>:tabp<CR>
 nmap <M-l> :w<CR>:GoLint<CR>
 nmap <M-n> :GoDef<CR>
 nmap <C-z> :undo<CR>
