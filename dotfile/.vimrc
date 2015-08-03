@@ -78,18 +78,32 @@ let g:tagbar_type_go = {
     \ }
 
 " 标签映射
-nmap <F8> :TagbarToggle<CR>
-nmap <F7> :NERDTreeToggle<CR>
+execute "set <M-i>=\ei"
+execute "set <M-o>=\eo"
+execute "set <M-p>=\ep"
+execute "set <M-u>=\eu"
+execute "set <M-l>=\el"
+execute "set <M-n>=\en"
+execute "set <M-y>=\ey"
+execute "set <M-c>=\ec"
+
+nmap <M-p> :TagbarToggle<CR>
+imap <M-p> <esc>:TagbarToggle<CR>i
+nmap <M-u> :NERDTreeToggle<CR>
+imap <M-u> <esc>:NERDTreeToggle<CR>
 nmap <C-c> :q<CR>
-nmap <F3> :tabn<CR>
-nmap <F2> :tabp<CR>
-nmap <F6> :w<CR>:GoLint<CR>
-nmap <F5> :GoDef<CR>
+nmap <M-i> :tabn<CR>
+imap <M-i> <esc>:tabn<CR>
+nmap <M-o> :tabp<CR>
+imap <M-o> <esc>:tabp<CR>
+nmap <M-l> :w<CR>:GoLint<CR>
+nmap <M-n> :GoDef<CR>
 nmap <C-z> :undo<CR>
-nmap <F4> :GoErrCheck<CR>
+nmap <M-y> :GoErrCheck<CR>
 nmap <C-s> :w<CR>
-imap <F1> :pc<CR>
-nmap <F1> :pc<CR>
+imap <C-s> <esc>:w<CR>
+imap <M-c> <esc>:pc<CR>
+nmap <M-c> :pc<CR>
 
 set backspace=indent,eol,start " 让backspace能正常工作的配置
 
