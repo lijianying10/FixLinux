@@ -1,0 +1,6 @@
+tmux new -d -n 'vim' -s '菜单盒子开发'
+tmux new-window -n 'runner' -t 菜单盒子开发:2
+tmux new-window -n 'tester' -t 菜单盒子开发:3
+tmux new-window -n 'loger' -t 菜单盒子开发:4
+tmux new-window -n 'db' -t 菜单盒子开发:5
+tmux attach -t 菜单盒子开发
