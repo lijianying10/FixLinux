@@ -14,8 +14,7 @@ Plugin 'majutsushi/tagbar.git'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'wincent/command-t'
 Plugin 'Lokaltog/vim-powerline'
-Plugin 'hdima/python-syntax'
-
+" Plugin 'hdima/python-syntax'
 call vundle#end()            " required
 filetype plugin indent on    " required
 set shiftwidth=4
@@ -36,47 +35,9 @@ set shiftwidth=4
 syntax enable
 filetype plugin on
 set number
-let g:go_disable_autoinstall = 0
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_fmt_command = "goimports" "保存的时候自动运行goimports
-" 自动补全自动启动
-let g:neocomplete#enable_at_startup = 1
 
 " 颜色配置
 colorscheme molokai
-
-" 标签分析
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-    \ }
 
 " 标签映射
 execute "set <M-i>=\ei"
@@ -103,13 +64,6 @@ imap <C-s> <esc>:w<CR>
 imap <M-c> <esc>:pc<CR>
 nmap <M-c> :pc<CR>
 
-let g:jedi#goto_command = "<leader>d"
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = "M-n"
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>r"
 
 set backspace=indent,eol,start " 让backspace能正常工作的配置
 
