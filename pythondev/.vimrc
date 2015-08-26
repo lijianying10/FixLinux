@@ -63,7 +63,12 @@ nmap <C-s> :w<CR>
 imap <C-s> <esc>:w<CR>
 imap <M-c> <esc>:pc<CR>
 nmap <M-c> :pc<CR>
+nmap <M-l> :w<CR>:PymodeLint<CR>
+imap <M-l> <esc>:w<CR>:PymodeLint<CR>
 
+" find reference用的是新开窗口 new是上下分，vnew是左右分
+let g:pymode_rope_goto_definition_cmd = 'e'
+let g:pymode_rope_goto_definition_bind = '<M-n>'
 
 set backspace=indent,eol,start " 让backspace能正常工作的配置
 
