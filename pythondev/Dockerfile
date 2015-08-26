@@ -11,6 +11,6 @@ RUN vim "+PluginInstall"  "+qall"
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && locale-gen "en_US.UTF-8"
 RUN mkdir ~/.font/ && cd ~/.font/ && git clone https://github.com/eugeii/consolas-powerline-vim.git && cd consolas-powerline-vim/ && cp *.ttf .. && cd .. && rm -rf consolas-powerline-vim/ && mkfontscale && mkfontdir && fc-cache -vf 
 RUN cd ~/.vim/bundle/command-t/ruby/command-t && ruby extconf.rb && make 
-RUN cd ~ && git clone git://github.com/klen/python-mode.git &&cd python-mode && cp -R * ~/.vim && cd ~
+RUN cd ~ && git clone git://github.com/klen/python-mode.git &&cd python-mode && cp -R * ~/.vim && cd ~ && rm -rf python-mode 
 RUN git clone http://github.com/vim/vim && cd vim && ./configure --enable-pythoninterp=yes --enable-rubyinterp=yes --enable-luainterp=yes && make && make install && cd .. && rm -rf vim 
 
