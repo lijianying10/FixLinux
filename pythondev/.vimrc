@@ -18,6 +18,7 @@ Plugin 'Lokaltog/vim-powerline'
 call vundle#end()            " required
 filetype plugin indent on    " required
 set shiftwidth=4
+set  wrap
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
