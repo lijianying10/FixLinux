@@ -17,3 +17,9 @@ def request(context, flow):
 
 端口为http代理端口
 脚本为上面的文件
+
+Docker命令直接运行的方法：
+```
+docker run -it --rm -p 8321:8321 -v /root/proxy.py:/root/proxy.py mitmproxy mitmproxy -p 8321 -s /root/proxy.py
+
+```
