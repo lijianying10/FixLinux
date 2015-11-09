@@ -9,4 +9,5 @@ RUN curl -Ssl https://raw.githubusercontent.com/lijianying10/FixLinux/master/scr
 RUN curl -Ssl https://raw.githubusercontent.com/lijianying10/FixLinux/master/script/e -o /bin/e && chmod +x /bin/e
 RUN curl -sSL -O https://get.daocloud.io/docker/builds/Linux/x86_64/docker-1.9.0 && chmod +x docker-1.9.0 && sudo mv docker-1.9.0 /usr/local/bin/docker
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && locale-gen "en_US.UTF-8"
+RUN apt-get install -y screen
 CMD ["/bin/bash"]
