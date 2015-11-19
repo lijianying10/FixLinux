@@ -115,3 +115,6 @@ let g:Powerline_symbols='unicode'
 " tab设置
 set ts=4
 set expandtab
+
+" 解决esc延迟问题
+set timeoutlen=1000 ttimeoutlen=0
