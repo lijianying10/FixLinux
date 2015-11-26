@@ -1,0 +1,1 @@
+docker run -it -v /usr/bin/docker:/usr/local/bin/docker -v /var/run/docker.sock:/var/run/docker.sock --rm kk:k
