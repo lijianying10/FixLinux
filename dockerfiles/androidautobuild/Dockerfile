@@ -20,5 +20,6 @@ RUN cd /opt && \
     wget -q ${ANDROID_SDK_URL} && \
     tar -xzf ${ANDROID_SDK_FILENAME} && \
     rm ${ANDROID_SDK_FILENAME} &&\
-    echo y | android update sdk --no-ui --all --filter tools,platform-tools,extra-android-m2repository,android-21,android-22,build-tools-22.0.1,build-tools-21.1.2
+    echo y | android update sdk --no-ui --all --filter tools,platform-tools,extra-android-m2repository,android-21
+RUN echo y | android update sdk --no-ui --all --filter android-22,build-tools-21.1.2,build-tools-22.0.1
 
