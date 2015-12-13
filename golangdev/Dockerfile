@@ -1,4 +1,6 @@
-FROM golang:1.5.0
+FROM golang:1.5.2
+
+MAINTAINER Philo <lijianying12@gmail.com>
 
 RUN apt-get update
 RUN apt-get install -y build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
