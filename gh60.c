@@ -64,7 +64,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         GRV, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, TRNS, \
         TRNS,FN2, UP,  TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,CALC,TRNS,HOME,INS, FN4,  \
         TRNS,LEFT,DOWN,RGHT,TRNS,TRNS,PSCR,SLCK,PAUS,TRNS,FN3, END,      TRNS, \
-        TRNS,DEL, TRNS,WHOM,MUTE,VOLU,VOLD,TRNS,PGUP,PGDN,DEL,           TRNS, \
+        TRNS,DEL, TRNS,WHOM,MUTE,VOLD,VOLU,MPLY,MPRV,MNXT,MSTP,           TRNS, \
         TRNS,TRNS,TRNS,          FN1,                     TRNS,DOWN,LEFT,RIGHT),
     /* 7: Layout selector
      * ,-----------------------------------------------------------.
