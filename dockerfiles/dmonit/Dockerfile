@@ -1,10 +1,11 @@
 FROM ubuntu:14.04
 
 RUN sed -i 's/archive.ubuntu/mirrors.aliyun/g' /etc/apt/sources.list && apt-get update
-RUN apt-get install -y curl git m4 texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
+RUN apt-get install -y curl telnet git m4 texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
 RUN apt-get install -y vim-nox locales xfonts-utils fontconfig tmux openssh-server screen
 COPY .tmux.conf /root/
 COPY .bashrc /root/
+COPY .vimrc /root/
 COPY freem /bin/
 COPY xdev /bin/
 COPY e /bin/
