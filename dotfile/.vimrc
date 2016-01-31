@@ -15,6 +15,7 @@ Plugin 'majutsushi/tagbar.git'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'wincent/command-t'
 Plugin 'Lokaltog/vim-powerline'
+Plugin 'solarnz/thrift.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 set shiftwidth=4
