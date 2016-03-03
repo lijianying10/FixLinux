@@ -119,3 +119,9 @@ set expandtab
 
 " 解决esc延迟问题
 set timeoutlen=1000 ttimeoutlen=0
+
+"高亮显示搜索匹配到的字符串
+set hlsearch
+ 
+"在搜索模式下，随着搜索字符的逐个输入，实时进行字符串匹配，并对首个匹配到的字符串高亮显示
+set incsearch
