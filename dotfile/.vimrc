@@ -101,8 +101,8 @@ nmap <M-l> :w<CR>:GoLint<CR>
 nmap <M-n> :GoDef<CR>
 nmap <C-z> :undo<CR>
 nmap <M-y> :GoErrCheck<CR>
-nmap <C-s> :w<CR>:GoMetaLinter<CR>
-imap <C-s> <esc>:w<CR>:GoMetaLinter<CR>
+nmap <C-s> :w<CR>
+imap <C-s> <esc>:w<CR>
 imap <M-c> <esc>:pc<CR>
 nmap <M-c> :pc<CR>
 
