@@ -126,4 +126,4 @@ set hlsearch
 "在搜索模式下，随着搜索字符的逐个输入，实时进行字符串匹配，并对首个匹配到的字符串高亮显示
 set incsearch
 
-set term=screen-256color
+set t_ut=
