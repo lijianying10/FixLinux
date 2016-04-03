@@ -1,4 +1,4 @@
-FROM golang:1.6.0-wheezy
+FROM golang:1.6.0
 
 MAINTAINER Philo <lijianying12@gmail.com>
 

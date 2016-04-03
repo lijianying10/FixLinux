@@ -14,7 +14,8 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'majutsushi/tagbar.git'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'wincent/command-t'
-Plugin 'Lokaltog/vim-powerline'
+"Plugin 'Lokaltog/vim-powerline'
+Plugin 'vim-airline/vim-airline'
 Plugin 'solarnz/thrift.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
