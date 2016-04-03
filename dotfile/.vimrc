@@ -127,4 +127,11 @@ set hlsearch
 "在搜索模式下，随着搜索字符的逐个输入，实时进行字符串匹配，并对首个匹配到的字符串高亮显示
 set incsearch
 
+" 解决Tmux下 背景颜色不一致的问题
 set t_ut=
+
+" tab 也使用airline
+let g:airline#extensions#tabline#enabled = 1
+
+" 使用Powerline字体
+let g:airline_powerline_fonts = 1
