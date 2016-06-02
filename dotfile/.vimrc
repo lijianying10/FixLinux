@@ -107,6 +107,7 @@ nmap <C-s> :w<CR>
 imap <C-s> <esc>:w<CR>
 imap <M-c> <esc>:pc<CR>
 nmap <M-c> :pc<CR>
+nmap <leader>r :Ack<space>
 
 set backspace=indent,eol,start " 让backspace能正常工作的配置
 
