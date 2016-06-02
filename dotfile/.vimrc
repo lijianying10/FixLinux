@@ -138,3 +138,16 @@ let g:airline#extensions#tabline#enabled = 1
 " 使用Powerline字体
 let g:airline_powerline_fonts = 1
 let g:ackprg = 'ack -s -H --nopager --nocolor --nogroup --column --smart-case'
+
+function SetClipdata()
+  let clipdata = getreg("")
+  call system("echo -n '".clipdata."' > /tmp/clipdata")
+endfunction
+
+func GetClipData()
+    let clipdata = system("cat /tmp/clipdata")
+    call append(getpos(".")[1],split(clipdata,"\n"))
+endfunction
+
+nmap <leader>c :call SetClipData()
+nmap <leader>v :call GetClipData()
