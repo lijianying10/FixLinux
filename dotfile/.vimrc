@@ -11,6 +11,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'fatih/vim-go'
 Plugin 'Shougo/neocomplete.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'majutsushi/tagbar.git'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'wincent/command-t'
