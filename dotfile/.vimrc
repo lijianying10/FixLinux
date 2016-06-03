@@ -139,7 +139,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:ackprg = 'ack -s -H --nopager --nocolor --nogroup --column --smart-case'
 
-function SetClipdata()
+function SetClipData()
   let clipdata = getreg("")
   call system("echo -n '".clipdata."' > /tmp/clipdata")
 endfunction
@@ -149,5 +149,5 @@ func GetClipData()
     call append(getpos(".")[1],split(clipdata,"\n"))
 endfunction
 
-nmap <leader>c :call SetClipData()
-nmap <leader>v :call GetClipData()
+nmap <leader>c :call SetClipData()<CR>
+nmap <leader>v :call GetClipData()<CR>
