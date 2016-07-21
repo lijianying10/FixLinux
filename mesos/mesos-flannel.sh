@@ -13,7 +13,7 @@ wget https://raw.githubusercontent.com/lijianying10/FixLinux/master/mesos/docker
 
 # start system-docker
 systemctl daemon-reload
-systemctl start system-docker
+systemctl restart system-docker
 
 # get-etcd:
 docker -H unix:///var/run/system-docker.sock pull  $REG/etcd:2.3.7
@@ -33,7 +33,7 @@ docker -H unix:///var/run/system-docker.sock run -it --net=host --privileged -d 
  -initial-cluster etcd0=http://${HostIP}:2380 \
  -initial-cluster-state new
  
-deploy flannel:
+# deploy flannel:
 
 docker -H unix:///var/run/system-docker.sock pull $REG/flannel:0.5.5
 docker -H unix:///var/run/system-docker.sock tag $REG/flannel:0.5.5 flannel:0.5.5
@@ -62,7 +62,7 @@ docker -H unix:///var/run/system-docker.sock run -d -it \
 docker -H unix:///var/run/system-docker.sock run -d \
 -e MESOS_HOSTNAME=$HostIP \
 -e MESOS_IP=$HostIP \
--e MESOS_QUORUM=2 \
+-e MESOS_QUORUM=1 \
 -e MESOS_ZK=zk://$HostIP:2181,$HostIP:2181/mesos \
 --name mesos-master --net host  --privileged --restart always $REG/mesos-master:0.28.1-centos-7
 
@@ -90,4 +90,10 @@ docker -H unix:///var/run/system-docker.sock run -d \
 --name mesos-slave --net host --privileged --restart always \
 $REG/mesos-slave:0.28.1-centos-7
 
+# run in single docker
 
+#docker -H unix:///var/run/system-docker.sock run -d \
+#-v /sys/fs/cgroup:/sys/fs/cgroup \
+#-v /var/run/docker.sock:/var/run/docker.sock \
+#--name marathon --net host --privileged --restart always \
+#$REG/mesos-single-docker:1
