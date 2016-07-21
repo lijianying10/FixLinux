@@ -86,6 +86,7 @@ docker -H unix:///var/run/system-docker.sock run -d \
 -e MESOS_IP=$HostIP \
 -e MESOS_MASTER=zk://$HostIP:2181,$HostIP:2181/mesos \
 -v /sys/fs/cgroup:/sys/fs/cgroup \
+-v /root/:/root/ \
 -v /var/run/docker.sock:/var/run/docker.sock \
 --name mesos-slave --net host --privileged --restart always \
 $REG/mesos-slave:0.28.1-centos-7
@@ -97,3 +98,40 @@ $REG/mesos-slave:0.28.1-centos-7
 #-v /var/run/docker.sock:/var/run/docker.sock \
 #--name marathon --net host --privileged --restart always \
 #$REG/mesos-single-docker:1
+
+cat > /root/dns.cfg <<EOF
+{
+  "zk": "zk://$HostIP:2181/mesos",
+  "masters": ["$HostIP:5050"],
+  "refreshSeconds": 60,
+  "ttl": 5,
+  "domain": "mesos",
+  "port": 53,
+  "resolvers": ["223.5.5.5"],
+  "timeout": 5,
+  "httpon": true,
+  "dnson": true,
+  "httpport": 8123,
+  "externalon": true,
+  "SOAMname": "ns1.mesos",
+  "SOARname": "root.ns1.mesos",
+  "SOARefresh": 60,
+  "SOARetry":   600,
+  "SOAExpire":  86400,
+  "SOAMinttl": 60,
+  "IPSources": ["netinfo", "mesos", "host"]
+}
+EOF
+
+wget http://git.oschina.net/lijianying10/mesos-dep/raw/master/mesos-dns-v0.5.2-linux-amd64 -O /root/mesos-dns
+
+cat > /root/dns.json << EOF
+{
+    "cmd": "/root/mesos-dns -config=/root/dns.cfg",
+    "cpus": 0.3,
+    "mem": 128,
+    "id": "mesos-dns",
+    "instances": 1,
+    "constraints": [["hostname", "CLUSTER", "$HostIP"]]
+}
+EOF
