@@ -4,6 +4,7 @@ REG=docker.elenet.me/jianying.li
 ##REG=afafaf.newb.xyz
 HostIP=192.168.56.101
 #HostIP=192.168.81.110
+IFACE=eth0
 
 # systemd:
 
@@ -47,7 +48,7 @@ docker -H unix:///var/run/system-docker.sock exec -it etcd /etcdctl set /coreos.
 
 #runflannel:
 
-docker -H unix:///var/run/system-docker.sock run --name flannel -it -d -v /run/flannel/:/run/flannel/ --net=host --privileged flannel:0.5.5 /opt/bin/flanneld --ip-masq=true --iface=enp0s3 -etcd-endpoints="http://192.168.56.101:4001,http://192.168.56.101:2379"
+docker -H unix:///var/run/system-docker.sock run --name flannel -it -d -v /run/flannel/:/run/flannel/ --net=host --privileged flannel:0.5.5 /opt/bin/flanneld --ip-masq=true --iface=$IFACE -etcd-endpoints="http://$HostIP:4001,http://$HostIP:2379"
 
 
 #run zk
@@ -135,3 +136,7 @@ cat > /root/dns.json << EOF
     "constraints": [["hostname", "CLUSTER", "$HostIP"]]
 }
 EOF
+
+chmod +x mesos-dns
+curl -i -H 'Content-Type: application/json' -d @dns.json http://$HostIP:8080/v2/apps
+
