@@ -1,0 +1,22 @@
+[Unit]
+Description=Docker Application Container Engine
+Documentation=https://docs.docker.com
+After=network.target system-docker.socket
+Requires=system-docker.socket
+
+[Service]
+Type=notify
+# the default is not to use systemd for cgroups because the delegate issues still
+# exists and systemd currently does not support the cgroup feature set required
+# for containers run by docker
+ExecStart=/usr/bin/docker daemon  --exec-root=/var/run/system-docker -H unix:///var/run/system-docker.sock -p /var/run/system-docker.pid -g /var/lib/system-docker/
+MountFlags=slave
+LimitNOFILE=1048576
+LimitNPROC=1048576
+LimitCORE=infinity
+TimeoutStartSec=0
+# set delegate yes so that systemd does not reset the cgroups of docker containers
+Delegate=yes
+
+[Install]
+WantedBy=multi-user.target
