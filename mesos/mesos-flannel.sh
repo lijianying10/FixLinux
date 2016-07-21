@@ -6,6 +6,11 @@ HostIP=192.168.56.101
 #HostIP=192.168.81.110
 IFACE=eth0
 
+ZKID=1
+ZKIPS=$HostIP
+ETCDNAME=etcd0
+ETCDCLUSTER='etcd0=http://$HostIP:2380'
+
 # systemd:
 
 wget https://raw.githubusercontent.com/lijianying10/FixLinux/master/mesos/docker-systemd/docker.service -O /usr/lib/systemd/system/docker.service
@@ -53,8 +58,8 @@ docker -H unix:///var/run/system-docker.sock run --name flannel -it -d -v /run/f
 
 #run zk
 docker -H unix:///var/run/system-docker.sock run -d -it \
--e MYID=1 \
--e SERVERS=$HostIP \
+-e MYID=$ZKID \
+-e SERVERS=$ZKIPS \
 -v /var/lib/zookeeper:/root/zookeeperbackup \
 --name=zookeeper --net=host --privileged --restart=always $REG/zookeeper:3.4.7-centos-7
 
