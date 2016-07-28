@@ -24,6 +24,8 @@ tar xf flannel-0.5.5-linux-amd64.tar.gz
 cd flannel-0.5.5-linux-amd64
 mv flanneld /bin/ 
 
+echo $HostIP > /etc/mesos-slave/hostname
+echo 'mesos,docker' > /etc/mesos-slave/containerizers
 echo 1 > /var/lib/zookeeper/myid
 sudo systemctl start zookeeper
 echo zk://$HostIP:2181/mesos >/etc/mesos/zk

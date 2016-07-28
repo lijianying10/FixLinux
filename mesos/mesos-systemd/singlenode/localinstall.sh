@@ -18,6 +18,8 @@ mv etcd /bin/
 mv etcdctl /bin/
 mv flanneld /bin/
 
+echo $HostIP > /etc/mesos-slave/hostname
+echo 'mesos,docker' > /etc/mesos-slave/containerizers
 echo 1 > /var/lib/zookeeper/myid
 sudo systemctl start zookeeper
 echo zk://$HostIP:2181/mesos >/etc/mesos/zk
