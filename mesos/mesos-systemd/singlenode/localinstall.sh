@@ -1,29 +1,30 @@
-set -x
-set -e
+
 
 # CONFIG
 
-HostIP='192.168.56.112'
-IFACE='enp0s3'
+HostIP='172.16.30.65'
+IFACE='em1'
 
-ETCDENDPOINTS="http://$HostIP:4001,http://$HostIP:2379"
+ZKID='1'
+ETCDNAME='etcd0'
+HostIP='172.16.30.65'
+ZKIPS='172.16.30.65'
+ETCDCLUSTER='etcd0=http://172.16.30.65:2380'
+ETCDENDPOINTS='http://172.16.30.65:4001,http://172.16.30.65:2379'
+ZKP='zk://172.16.30.65:2181/mesos'
+QUORUM=1
 
-## FILE: http://git.oschina.net/lijianying10/mesosrpm
-tar xf MesosMarathonZK.tar.gz
-cd mm
-rpm -Uvh *
-cd ..
-## FILE: http://git.oschina.net/lijianying10/etcdflannel
-mv etcd /bin/
-mv etcdctl /bin/
-mv flanneld /bin/
+set -x
+set -e
+
 
 echo $HostIP > /etc/mesos-slave/hostname
+echo $HostIP > /etc/mesos-master/hostname
 echo 'mesos,docker' > /etc/mesos-slave/containerizers
-echo 1 > /var/lib/zookeeper/myid
+echo $ZKID > /var/lib/zookeeper/myid
 sudo systemctl start zookeeper
-echo zk://$HostIP:2181/mesos >/etc/mesos/zk
-echo 1 > /etc/mesos-master/quorum
+echo $ZKP >/etc/mesos/zk
+echo $QUORUM > /etc/mesos-master/quorum
 systemctl start mesos-master
 systemctl start mesos-slave
 
@@ -39,7 +40,7 @@ ExecStart=/bin/etcd -name etcd0 \
  -initial-advertise-peer-urls http://${HostIP}:2380 \
  -listen-peer-urls http://0.0.0.0:2380 \
  -initial-cluster-token etcd-cluster-1 \
- -initial-cluster etcd0=http://${HostIP}:2380 \
+ -initial-cluster $ETCDCLUSTER \
  -initial-cluster-state new
 Restart=always
 RestartSec=10s
