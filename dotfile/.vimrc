@@ -63,7 +63,7 @@ let g:ycm_complete_in_strings = 1
 " 离开插入模式后自动关闭预览窗口"
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " 回车即选中当前项"
-inoremap <expr> <CR>       pumvisible() ? '<C-y>' : '\<CR>'     
+inoremap <expr> <CR>       pumvisible() ? '<C-y>' : '<CR>'
 
 
 " 颜色配置
