@@ -1,9 +1,6 @@
 FROM ubuntu:16.04
 
-MAINTAINER Philo <lijianying12@gmail.com>
-
-ENV GOPATH /go
-ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
+ENV GOPATH="/go" PATH="/go/bin:/usr/local/go/bin:$PATH"
 
 RUN apt-get update &&\
 apt-get install -y --no-install-recommends telnet build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev zip rubygems vim-nox vim-gtk locales xfonts-utils fontconfig ctags ruby-dev cmake python-dev libc6-dev pkg-config && \
@@ -46,5 +43,6 @@ mkfontdir &&\
 fc-cache -vf &&\
 cd ~/.vim/bundle/command-t/ruby/command-t &&\
 ruby extconf.rb &&\
-make && /root/.vim/bundle/YouCompleteMe &&\
-./install.py --gocode-completer --clang-completer
+make && cd /root/.vim/bundle/YouCompleteMe &&\
+./install.py --gocode-completer --clang-completer &&\
+gocode set unimported-packages true
