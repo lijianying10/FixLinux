@@ -45,8 +45,26 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports" "保存的时候自动运行goimports
-" 自动补全自动启动
-let g:neocomplete#enable_at_startup = 1
+
+" 自动补全
+" 是否开启语义补全"
+let g:ycm_seed_identifiers_with_syntax=1
+" 是否在注释中也开启补全"
+let g:ycm_complete_in_comments=1
+let g:ycm_collect_identifiers_from_comments_and_strings = 0
+" 开始补全的字符数"
+let g:ycm_min_num_of_chars_for_completion=2
+" 补全后自动关机预览窗口"
+let g:ycm_autoclose_preview_window_after_completion=1
+" 禁止缓存匹配项,每次都重新生成匹配项"
+let g:ycm_cache_omnifunc=0
+" 字符串中也开启补全"
+let g:ycm_complete_in_strings = 1
+" 离开插入模式后自动关闭预览窗口"
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+" 回车即选中当前项"
+inoremap <expr> <CR>       pumvisible() ? '<C-y>' : '\<CR>'     
+
 
 " 颜色配置
 colorscheme molokai
