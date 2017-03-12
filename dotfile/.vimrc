@@ -117,7 +117,7 @@ nmap <M-o> :tabn<CR>
 imap <M-o> <esc>:tabn<CR>
 nmap <M-i> :tabp<CR>
 imap <M-i> <esc>:tabp<CR>
-nmap <M-l> :w<CR>:GoLint<CR>
+nmap <M-l> :w<CR>:GoMetaLinter<CR>
 nmap <M-n> :GoDef<CR>
 nmap <C-z> :undo<CR>
 nmap <M-y> :GoErrCheck<CR>
