@@ -15,10 +15,8 @@ Plugin 'mileszs/ack.vim'
 Plugin 'majutsushi/tagbar.git'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'wincent/command-t'
-"Plugin 'Lokaltog/vim-powerline'
 Plugin 'vim-airline/vim-airline'
 Plugin 'solarnz/thrift.vim'
-Plugin 'Raimondi/delimitMate'
 call vundle#end()            " required
 filetype plugin indent on    " required
 set shiftwidth=4
@@ -170,3 +168,7 @@ endfunction
 
 nmap <leader>c :call SetClipData()<CR>
 nmap <leader>v :call GetClipData()<CR>
+inoremap { {<CR>}<ESC>O
+inoremap ( ()<ESC>i
+inoremap " ""<ESC>i
+inoremap ' ''<ESC>i
