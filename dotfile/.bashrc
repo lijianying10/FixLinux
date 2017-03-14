@@ -9,3 +9,6 @@ stty -ixon
 stty -ixoff
 PS1="[\[\e[32m\]#\##\[\e[31m\]\u@\[\e[36m\]\h \w]\$\[\e[m\]"
 alias resetenv='curl https://raw.githubusercontent.com/lijianying10/FixLinux/master/script/env.sh | bash'
+
+export GOPATH=/go
+export PATH=$PATH:/go/bin/:/usr/local/go/bin/:/usr/local/node/bin/

@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 ENV GOPATH="/go" PATH="/go/bin:/usr/local/go/bin:$PATH"
 
 RUN apt-get update &&\
-apt-get install -y --no-install-recommends telnet mercurial build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev zip rubygems vim-nox vim-gtk locales xfonts-utils fontconfig ctags ruby-dev cmake python-dev libc6-dev pkg-config && \
+apt-get install -y --no-install-recommends telnet mercurial build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev zip rubygems vim-nox vim-gtk locales xfonts-utils fontconfig ctags ruby-dev cmake python-dev libc6-dev pkg-config libelf1 && \
 curl -fsSL "https://golang.org/dl/go1.7.5.linux-amd64.tar.gz" -o golang.tar.gz \
 	&& echo "2e4dd6c44f0693bef4e7b46cc701513d74c3cc44f2419bf519d7868b12931ac3  golang.tar.gz" | sha256sum -c - \
 	&& tar -C /usr/local -xzf golang.tar.gz \
@@ -28,6 +28,7 @@ go get github.com/kisielk/errcheck &&\
 go get github.com/jstemmer/gotags &&\
 go get github.com/klauspost/asmfmt/cmd/asmfmt &&\
 go get github.com/fatih/motion &&\
+go get -u github.com/haya14busa/gopkgs/cmd/gopkgs &&\
 go get github.com/zmb3/gogetdoc &&\
 go get github.com/josharian/impl &&\
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen &&\
@@ -45,4 +46,7 @@ cd ~/.vim/bundle/command-t/ruby/command-t &&\
 ruby extconf.rb &&\
 make && cd /root/.vim/bundle/YouCompleteMe &&\
 ./install.py --gocode-completer --clang-completer &&\
-gocode set unimported-packages true
+gocode set unimported-packages true &&\
+cd /root/.vim/bundle/fzf && ./install --all &&\
+cp /root/.vim/bundle/fzf/bin/* /bin &&\
+wget https://nodejs.org/dist/v6.10.0/node-v6.10.0-linux-x64.tar.xz && tar xf node-v6.10.0-linux-x64.tar.xz && rm -rf node-v6.10.0-linux-x64.tar.xz && mv node-v6.10.0-linux-x64.tar.xz /usr/local/node/

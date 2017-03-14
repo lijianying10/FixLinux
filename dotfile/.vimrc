@@ -17,6 +17,13 @@ Plugin 'scrooloose/nerdtree.git'
 Plugin 'wincent/command-t'
 Plugin 'vim-airline/vim-airline'
 Plugin 'solarnz/thrift.vim'
+Plugin 'junegunn/fzf'
+" for HTML
+Plugin 'mattn/emmet-vim'
+" for typescript
+Plugin 'leafgarland/typescript-vim'
+" for JS
+Plugin 'pangloss/vim-javascript'
 call vundle#end()            " required
 filetype plugin indent on    " required
 set shiftwidth=4
@@ -172,3 +179,15 @@ inoremap { {<CR>}<ESC>O
 inoremap ( ()<ESC>i
 inoremap " ""<ESC>i
 inoremap ' ''<ESC>i
+
+augroup gopkgs
+  autocmd!
+  autocmd FileType go command! -buffer Import exe 'GoImport' fzf#run({'source': 'gopkgs'})[0]
+  autocmd FileType go command! -buffer Doc exe 'GoDoc' fzf#run({'source': 'gopkgs'})[0]
+augroup END
+
+" for js check
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+set foldmethod=syntax
