@@ -24,6 +24,10 @@ Plugin 'mattn/emmet-vim'
 Plugin 'leafgarland/typescript-vim'
 " for JS
 Plugin 'pangloss/vim-javascript'
+" for SNIP tool
+Plugin 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
 call vundle#end()            " required
 filetype plugin indent on    " required
 set shiftwidth=4
@@ -67,9 +71,14 @@ let g:ycm_cache_omnifunc=0
 " 字符串中也开启补全"
 let g:ycm_complete_in_strings = 1
 " 离开插入模式后自动关闭预览窗口"
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+" autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " 回车即选中当前项"
 inoremap <expr> <CR>       pumvisible() ? '<C-y>' : '<CR>'
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
 
 " 颜色配置
@@ -149,7 +158,7 @@ set timeoutlen=1000 ttimeoutlen=0
 
 "高亮显示搜索匹配到的字符串
 set hlsearch
- 
+
 "在搜索模式下，随着搜索字符的逐个输入，实时进行字符串匹配，并对首个匹配到的字符串高亮显示
 set incsearch
 
@@ -175,7 +184,7 @@ endfunction
 
 nmap <leader>c :call SetClipData()<CR>
 nmap <leader>v :call GetClipData()<CR>
-inoremap { {<CR>}<ESC>O
+inoremap { {}<ESC>i
 inoremap ( ()<ESC>i
 inoremap " ""<ESC>i
 inoremap ' ''<ESC>i
@@ -190,4 +199,12 @@ augroup END
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow = 1
-set foldmethod=syntax
+
+" Snippets tool config
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
