@@ -49,4 +49,8 @@ make && cd /root/.vim/bundle/YouCompleteMe &&\
 gocode set unimported-packages true &&\
 cd /root/.vim/bundle/fzf && ./install --all &&\
 cp /root/.vim/bundle/fzf/bin/* /bin &&\
-wget https://nodejs.org/dist/v6.10.0/node-v6.10.0-linux-x64.tar.xz && tar xf node-v6.10.0-linux-x64.tar.xz && rm -rf node-v6.10.0-linux-x64.tar.xz && mv node-v6.10.0-linux-x64.tar.xz /usr/local/node/ && npm install --global flow-bin
+wget https://nodejs.org/dist/v6.10.0/node-v6.10.0-linux-x64.tar.xz &&\
+tar -xJf node-v6.10.0-linux-x64.tar.xz -C /usr/local --strip-components=1 &&\
+rm -rf node-v6.10.0-linux-x64.tar.xz &&\
+ln -s /usr/local/bin/node /usr/local/bin/nodejs &&\
+npm install --global flow-bin
