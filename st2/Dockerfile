@@ -1,4 +1,5 @@
 FROM ubuntu:16.04
 COPY st2ctl st2.conf supervisord.conf docker-entrypoint.sh /
 RUN sed -i 's/archive.ubuntu/mirrors.aliyun/g' /etc/apt/sources.list && apt-get update && apt-get install -y --no-install-recommends wget gnupg-curl curl sudo apache2-utils vim apt-utils supervisor && os=ubuntu dist=xenial curl -s https://packagecloud.io/install/repositories/StackStorm/stable/script.deb.sh | sudo bash && apt-get install -y st2  && apt-key adv --fetch-keys http://nginx.org/keys/nginx_signing.key && echo 'deb http://nginx.org/packages/ubuntu/ xenial nginx' >> /etc/apt/sources.list.d/nginx.list && apt-get update && apt-get install -y st2web nginx && rm /etc/nginx/conf.d/default.conf && cp /usr/share/doc/st2/conf/nginx/st2.conf /etc/nginx/conf.d/ && curl -o /bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v1.6.1/bin/linux/amd64/kubectl && chmod +x /bin/kubectl && wget https://github.com/krallin/tini/releases/download/v0.14.0/tini-amd64 -O /bin/tini && chmod +x /bin/tini && mv /st2.conf /etc/st2/ && mv supervisord.conf /etc/supervisor/supervisord.conf && mv /st2ctl /usr/bin/st2ctl && chmod +x /usr/bin/st2ctl
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/bin/tini", "--"]
+CMD bash /docker-entrypoint.sh
