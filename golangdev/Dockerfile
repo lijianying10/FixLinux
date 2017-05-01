@@ -31,6 +31,8 @@ go get github.com/fatih/motion &&\
 go get -u github.com/haya14busa/gopkgs/cmd/gopkgs &&\
 go get github.com/zmb3/gogetdoc &&\
 go get github.com/josharian/impl &&\
+go get github.com/derekparker/delve/cmd/dlv &&\
+wget https://github.com/buger/goreplay/releases/download/v0.16.0/gor_0.16.0_x64.tar.gz && tar xf gor_0.16.0_x64.tar.gz && mv gor /bin/gor && chmod +x /bin/gor && rm -rf gor_0.16.0_x64.tar.gz &&\
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen &&\
 locale-gen "en_US.UTF-8"&& mkdir ~/.fonts/ &&\
 cd ~/.fonts/ &&\
