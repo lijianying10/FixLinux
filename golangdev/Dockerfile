@@ -4,8 +4,8 @@ ENV GOPATH="/go" PATH="/go/bin:/usr/local/go/bin:$PATH:/usr/local/node/bin/"
 
 RUN apt-get update &&\
 apt-get install -y --no-install-recommends telnet dnsutils mercurial build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev zip rubygems vim-nox vim-gtk locales xfonts-utils fontconfig ctags ruby-dev cmake python-dev libc6-dev pkg-config libelf1 wget iputils-ping && \
-curl -fsSL "https://golang.org/dl/go1.7.5.linux-amd64.tar.gz" -o golang.tar.gz \
-	&& echo "2e4dd6c44f0693bef4e7b46cc701513d74c3cc44f2419bf519d7868b12931ac3  golang.tar.gz" | sha256sum -c - \
+curl -fsSL "https://golang.org/dl/go1.8.3.linux-amd64.tar.gz" -o golang.tar.gz \
+	&& echo "1862f4c3d3907e59b04a757cfda0ea7aa9ef39274af99a784f5be843c80c6772 golang.tar.gz" | sha256sum -c - \
 	&& tar -C /usr/local -xzf golang.tar.gz \
 	&& rm golang.tar.gz &&\
 curl http://beyondgrep.com/ack-2.14-single-file > /bin/ack &&\
@@ -32,7 +32,9 @@ go get -u github.com/haya14busa/gopkgs/cmd/gopkgs &&\
 go get github.com/zmb3/gogetdoc &&\
 go get github.com/josharian/impl &&\
 go get github.com/derekparker/delve/cmd/dlv &&\
-wget https://github.com/buger/goreplay/releases/download/v0.16.0/gor_0.16.0_x64.tar.gz && tar xf gor_0.16.0_x64.tar.gz && mv gor /bin/gor && chmod +x /bin/gor && rm -rf gor_0.16.0_x64.tar.gz &&\
+go get -u github.com/fatih/gomodifytags &&\
+go get -u github.com/dominikh/go-tools/cmd/keyify &&\
+wget https://github.com/buger/goreplay/releases/download/v0.16.0.2/gor_0.16.0_x64.tar.gz && tar xf gor_0.16.0_x64.tar.gz && mv gor /bin/gor && chmod +x /bin/gor && rm -rf gor_0.16.0_x64.tar.gz &&\
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen &&\
 locale-gen "en_US.UTF-8"&& mkdir ~/.fonts/ &&\
 cd ~/.fonts/ &&\
@@ -44,15 +46,15 @@ rm -rf consolas-powerline-vim/ &&\
 mkfontscale &&\
 mkfontdir &&\
 fc-cache -vf &&\
-cd ~/.vim/bundle/command-t/ruby/command-t &&\
+cd ~/.vim/bundle/command-t/ruby/command-t/ext/command-t/ &&\
 ruby extconf.rb &&\
 make && cd /root/.vim/bundle/YouCompleteMe &&\
 ./install.py --gocode-completer --clang-completer &&\
 gocode set unimported-packages true &&\
 cd /root/.vim/bundle/fzf && ./install --all &&\
 cp /root/.vim/bundle/fzf/bin/* /bin &&\
-wget https://nodejs.org/dist/v6.10.0/node-v6.10.0-linux-x64.tar.xz &&\
-tar -xJf node-v6.10.0-linux-x64.tar.xz -C /usr/local --strip-components=1 &&\
-rm -rf node-v6.10.0-linux-x64.tar.xz &&\
+wget https://nodejs.org/dist/v6.11.0/node-v6.11.0-linux-x64.tar.xz &&\
+tar -xJf node-v6.11.0-linux-x64.tar.xz -C /usr/local --strip-components=1 &&\
+rm -rf node-v6.11.0-linux-x64.tar.xz &&\
 ln -s /usr/local/bin/node /usr/local/bin/nodejs &&\
 npm install --global flow-bin
