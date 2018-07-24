@@ -4,7 +4,7 @@ MAINTAINER lijianying12@gmail.com
 
 COPY sources.list /etc/apt/sources.list
 
-ENV JAVA_HOME /jdk1.8.0_65
+ENV JAVA_HOME /jdk1.8.0_181
 ENV ANDROID_HOME /opt/android-sdk-linux/
 ENV ANDROID_SDK_FILENAME android-sdk_r24.4.1-linux.tgz
 ENV ANDROID_SDK_URL http://dl.google.com/android/${ANDROID_SDK_FILENAME}
