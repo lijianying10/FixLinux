@@ -16,7 +16,7 @@ curl -Ssl https://raw.githubusercontent.com/lijianying10/FixLinux/master/dotfile
 curl -Ssl https://raw.githubusercontent.com/lijianying10/FixLinux/master/dotfile/.bashrc -o ~/.bashrc &&\
 mkdir -p ~/.vim/colors/ &&\
 curl -Ssl https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim -o ~/.vim/colors/molokai.vim &&\
-vim "+PluginInstall" "+qall" &&\
+nvim "+PluginInstall" "+qall" &&\
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen &&\
 locale-gen "en_US.UTF-8"&& mkdir ~/.fonts/ &&\
 cd ~/.fonts/ &&\
