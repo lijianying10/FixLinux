@@ -19,7 +19,7 @@ ln -s /root/.vim /root/.config/nvim &&\
 ln -s /root/.vimrc /root/.vim/init.vim &&\
 mkdir -p ~/.vim/colors/ &&\
 curl -Ssl https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim -o ~/.vim/colors/molokai.vim &&\
-nvim "+PlugInstall" "+qall" &&\
+nvim -i NONE -c PlugInstall -c quitall &&\
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen &&\
 locale-gen "en_US.UTF-8"&& mkdir ~/.fonts/ &&\
 cd ~/.fonts/ &&\
