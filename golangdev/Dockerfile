@@ -14,7 +14,7 @@ chmod 0755 /bin/ack &&\
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim &&\
 curl -Ssl https://raw.githubusercontent.com/lijianying10/FixLinux/neovim/dotfile/.vimrc -o ~/.vimrc &&\
 curl -Ssl https://raw.githubusercontent.com/lijianying10/FixLinux/neovim/dotfile/.bashrc -o ~/.bashrc &&\
-mkdir -p ~/.config &&\
+mkdir -p ~/.config && mkdir -p /root/.vim/ &&\
 ln -s /root/.vim /root/.config/nvim &&\
 ln -s /root/.vimrc /root/.vim/init.vim &&\
 mkdir -p ~/.vim/colors/ &&\
