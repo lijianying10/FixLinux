@@ -3,8 +3,8 @@ FROM ubuntu:16.04
 ENV GOPATH="/go" PATH="/go/bin:/usr/local/go/bin:$PATH:/usr/local/node/bin/"
 
 RUN apt-get update &&\
-apt-get install -y --no-install-recommends telnet dnsutils mercurial build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev zip rubygems vim-nox vim-gtk locales xfonts-utils fontconfig ctags ruby-dev cmake python-dev libc6-dev pkg-config libelf1 wget iputils-ping software-properties-common && \
-apt-add-repository ppa:neovim-ppa/stable && apt-get update && apt-get install neovim &&\
+apt-get install -y --no-install-recommends telnet dnsutils mercurial build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev zip rubygems vim-nox vim-gtk locales xfonts-utils fontconfig ctags ruby-dev cmake python-dev libc6-dev pkg-config libelf1 wget iputils-ping software-properties-common 
+RUN apt-add-repository ppa:neovim-ppa/stable && apt-get update && apt-get install -y neovim &&\
 curl -fsSL "https://dl.google.com/go/go1.11.1.linux-amd64.tar.gz" -o golang.tar.gz \
 	&& echo "2871270d8ff0c8c69f161aaae42f9f28739855ff5c5204752a8d92a1c9f63993 golang.tar.gz" | sha256sum -c - \
 	&& tar -C /usr/local -xzf golang.tar.gz \
