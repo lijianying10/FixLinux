@@ -7,7 +7,7 @@ call plug#begin('~/.vim/plugged')
 " Initialize plugin system
 Plug 'fatih/vim-go'
 Plug 'mileszs/ack.vim'
-Plug 'majutsushi/tagbar.git'
+Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
