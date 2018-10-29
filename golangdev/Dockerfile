@@ -28,5 +28,4 @@ rm -rf consolas-powerline-vim/ &&\
 mkfontscale &&\
 mkfontdir &&\
 fc-cache -vf &&\
-gocode set unimported-packages true &&\
-
+gocode set unimported-packages true
