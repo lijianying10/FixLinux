@@ -39,6 +39,8 @@ go get -u github.com/josharian/impl &&\
 go get -u honnef.co/go/tools/cmd/keyify &&\
 go get -u github.com/fatih/motion &&\
 go get -u github.com/koron/iferr &&\
+go get github.com/tools/godep &&\
+go get -u github.com/derekparker/delve/cmd/dlv &&\
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen &&\
 locale-gen "en_US.UTF-8"&& mkdir ~/.fonts/ &&\
 cd ~/.fonts/ &&\
