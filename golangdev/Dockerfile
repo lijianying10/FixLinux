@@ -14,9 +14,12 @@ chmod 0755 /bin/ack &&\
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim &&\
 curl -Ssl https://raw.githubusercontent.com/lijianying10/FixLinux/neovim/dotfile/.vimrc -o ~/.vimrc &&\
 curl -Ssl https://raw.githubusercontent.com/lijianying10/FixLinux/neovim/dotfile/.bashrc -o ~/.bashrc &&\
+mkdir -p ~/.config &&\
+ln -s /root/.vim /root/.config/nvim &&\
+ln -s /root/.vimrc /root/.vim/init.vim &&\
 mkdir -p ~/.vim/colors/ &&\
 curl -Ssl https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim -o ~/.vim/colors/molokai.vim &&\
-nvim "+PluginInstall" "+qall" &&\
+nvim "+PlugInstall" "+qall" &&\
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen &&\
 locale-gen "en_US.UTF-8"&& mkdir ~/.fonts/ &&\
 cd ~/.fonts/ &&\
@@ -28,8 +31,7 @@ rm -rf consolas-powerline-vim/ &&\
 mkfontscale &&\
 mkfontdir &&\
 fc-cache -vf &&\
-gocode set unimported-packages true &&\
-cd ~/.vim/bundle/command-t/ruby/command-t/ext/command-t/ &&\
-ruby extconf.rb &&\
-cd /root/.vim/bundle/fzf && ./install --all &&\
-cp /root/.vim/bundle/fzf/bin/* /bin
+cd ~/.vim/plugged/command-t/ruby/command-t/ext/command-t/ &&\
+ruby extconf.rb && make && make install &&\
+cd ~/.vim/plugged/fzf && ./install --all &&\
+cp ~/.vim/plugged/fzf/bin/* /bin

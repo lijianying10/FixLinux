@@ -74,14 +74,14 @@ let g:tagbar_type_go = {
     \ }
 
 " 标签映射
-execute "set <M-i>=\ei"
-execute "set <M-o>=\eo"
-execute "set <M-p>=\ep"
-execute "set <M-u>=\eu"
-execute "set <M-l>=\el"
-execute "set <M-n>=\en"
-execute "set <M-y>=\ey"
-execute "set <M-c>=\ec"
+" execute "set <M-i>=\ei"
+" execute "set <M-o>=\eo"
+" execute "set <M-p>=\ep"
+" execute "set <M-u>=\eu"
+" execute "set <M-l>=\el"
+" execute "set <M-n>=\en"
+" execute "set <M-y>=\ey"
+" execute "set <M-c>=\ec"
 
 nmap <M-p> :TagbarToggle<CR>
 imap <M-p> <esc>:TagbarToggle<CR>i
