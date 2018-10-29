@@ -25,6 +25,10 @@ Plug 'honza/vim-snippets'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
+let g:python3_host_prog = '/usr/bin/python3'
+" let g:python_host_prog = '/usr/bin/python'
+let g:loaded_python_provider=1
+let g:python_host_skip_check=1
 let g:deoplete#enable_at_startup = 1
 
 " 代码高亮用的
