@@ -10,16 +10,16 @@ RUN curl -fsSL "https://dl.google.com/go/go1.11.1.linux-amd64.tar.gz" -o golang.
 	&& tar -C /usr/local -xzf golang.tar.gz \
 	&& rm golang.tar.gz &&\
 curl http://beyondgrep.com/ack-2.24-single-file > /bin/ack &&\
-chmod 0755 /bin/ack &&\
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim &&\
+chmod 0755 /bin/ack
+RUN curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim &&\
 curl -Ssl https://raw.githubusercontent.com/lijianying10/FixLinux/neovim/dotfile/.vimrc -o ~/.vimrc &&\
 curl -Ssl https://raw.githubusercontent.com/lijianying10/FixLinux/neovim/dotfile/.bashrc -o ~/.bashrc &&\
 mkdir -p ~/.config && mkdir -p /root/.vim/ &&\
 ln -s /root/.vim /root/.config/nvim &&\
 ln -s /root/.vimrc /root/.vim/init.vim &&\
 mkdir -p ~/.vim/colors/ &&\
-curl -Ssl https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim -o ~/.vim/colors/molokai.vim
-RUN nvim -i NONE -c PlugInstall -c quitall > /dev/null 2>&1
+curl -Ssl https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim -o ~/.vim/colors/molokai.vim &&\
+nvim -i NONE -c PlugInstall -c quitall 
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen &&\
 locale-gen "en_US.UTF-8"&& mkdir ~/.fonts/ &&\
 cd ~/.fonts/ &&\
