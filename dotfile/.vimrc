@@ -8,10 +8,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go'
 Plug 'mileszs/ack.vim'
 Plug 'majutsushi/tagbar.git'
-Plug 'scrooloose/nerdtree.git'
-Plug 'wincent/command-t'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'vim-airline/vim-airline'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 " for HTML
 Plug 'mattn/emmet-vim'
 " for typescript
@@ -23,6 +23,7 @@ Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 call plug#end()
 
 let g:python3_host_prog = '/usr/bin/python3'
@@ -35,13 +36,15 @@ let g:deoplete#enable_at_startup = 1
 syntax enable
 filetype plugin on
 set number
-let g:go_disable_autoinstall = 0
+let g:go_fmt_command = "goimports" "保存的时候自动运行goimports
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_fmt_command = "goimports" "保存的时候自动运行goimports
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
 
 " 颜色配置
 colorscheme molokai
@@ -103,6 +106,7 @@ imap <C-s> <esc>:w<CR>
 imap <M-c> <esc>:pc<CR>
 nmap <M-c> :pc<CR>
 nmap <leader>r :Ack<space>
+nmap <leader>t :FZF<CR>
 
 set backspace=indent,eol,start " 让backspace能正常工作的配置
 
@@ -170,3 +174,14 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" tabs for golang
+au FileType go set noexpandtab
+au FileType go set shiftwidth=4
+au FileType go set softtabstop=4
+au FileType go set tabstop=4
+
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#go#gocode_binary='/go/bin/gocode'
+let g:deoplete#sources#go#builtin_objects=1
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
