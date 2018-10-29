@@ -5,7 +5,7 @@ filetype off                  " required
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 " Initialize plugin system
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go'
 Plug 'mileszs/ack.vim'
 Plug 'majutsushi/tagbar.git'
 Plug 'scrooloose/nerdtree.git'

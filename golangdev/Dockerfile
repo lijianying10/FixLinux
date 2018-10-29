@@ -12,6 +12,7 @@ RUN curl -fsSL "https://dl.google.com/go/go1.11.1.linux-amd64.tar.gz" -o golang.
 curl http://beyondgrep.com/ack-2.24-single-file > /bin/ack &&\
 chmod 0755 /bin/ack
 RUN curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim &&\
+echo "abc" &&\
 curl -Ssl https://raw.githubusercontent.com/lijianying10/FixLinux/neovim/dotfile/.vimrc -o ~/.vimrc &&\
 curl -Ssl https://raw.githubusercontent.com/lijianying10/FixLinux/neovim/dotfile/.bashrc -o ~/.bashrc &&\
 mkdir -p ~/.config && mkdir -p /root/.vim/ &&\
@@ -34,4 +35,4 @@ fc-cache -vf &&\
 cd ~/.vim/plugged/command-t/ruby/command-t/ext/command-t/ &&\
 ruby extconf.rb && make && make install &&\
 cd ~/.vim/plugged/fzf && ./install --all &&\
-cp ~/.vim/plugged/fzf/bin/* /binq
+cp ~/.vim/plugged/fzf/bin/* /bin
