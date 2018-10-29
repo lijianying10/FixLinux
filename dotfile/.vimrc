@@ -7,7 +7,7 @@ call plug#begin('~/.vim/plugged')
 " Initialize plugin system
 
 Plug 'gmarik/Vundle.vim'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'mileszs/ack.vim'
 Plug 'majutsushi/tagbar.git'
 Plug 'scrooloose/nerdtree.git'

@@ -28,4 +28,8 @@ rm -rf consolas-powerline-vim/ &&\
 mkfontscale &&\
 mkfontdir &&\
 fc-cache -vf &&\
-gocode set unimported-packages true
+gocode set unimported-packages true &&\
+cd ~/.vim/bundle/command-t/ruby/command-t/ext/command-t/ &&\
+ruby extconf.rb &&\
+cd /root/.vim/bundle/fzf && ./install --all &&\
+cp /root/.vim/bundle/fzf/bin/* /bin
