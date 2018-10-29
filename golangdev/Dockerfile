@@ -14,7 +14,7 @@ chmod 0755 /bin/ack &&\
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim &&\
 curl -Ssl https://raw.githubusercontent.com/lijianying10/FixLinux/master/dotfile/.vimrc -o ~/.vimrc &&\
 curl -Ssl https://raw.githubusercontent.com/lijianying10/FixLinux/master/dotfile/.bashrc -o ~/.bashrc &&\
-mkdir ~/.vim/colors/ &&\
+mkdir -p ~/.vim/colors/ &&\
 curl -Ssl https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim -o ~/.vim/colors/molokai.vim &&\
 vim "+PluginInstall" "+qall" &&\
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen &&\
