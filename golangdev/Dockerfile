@@ -3,38 +3,42 @@ FROM ubuntu:16.04
 ENV GOPATH="/go" PATH="/go/bin:/usr/local/go/bin:$PATH:/usr/local/node/bin/"
 
 RUN apt-get update &&\
-apt-get install -y --no-install-recommends telnet dnsutils mercurial build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev zip rubygems vim-nox vim-gtk locales xfonts-utils fontconfig ctags ruby-dev cmake python-dev libc6-dev pkg-config libelf1 wget iputils-ping && \
-curl -fsSL "https://golang.org/dl/go1.8.3.linux-amd64.tar.gz" -o golang.tar.gz \
-	&& echo "1862f4c3d3907e59b04a757cfda0ea7aa9ef39274af99a784f5be843c80c6772 golang.tar.gz" | sha256sum -c - \
+apt-get install -y --no-install-recommends telnet dnsutils mercurial build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev zip unzip rubygems locales xfonts-utils fontconfig ctags ruby-dev cmake libc6-dev pkg-config libelf1 wget iputils-ping software-properties-common ninja-build gettext libtool libtool-bin autotools-dev automake sudo python3-pip python3-setuptools &&\
+wget https://github.com/neovim/neovim/archive/v0.3.1.tar.gz && tar xf v0.3.1.tar.gz && rm v0.3.1.tar.gz && cd neovim-0.3.1 && mkdir .deps && cd .deps && cmake ../third-party/ && make -j4 && cd .. && mkdir build && cd build && cmake .. && make -j4 && make install && cd / && rm -rf /neovim-0.3.1/ &&\
+curl -fsSL "https://dl.google.com/go/go1.11.1.linux-amd64.tar.gz" -o golang.tar.gz \
+	&& echo "2871270d8ff0c8c69f161aaae42f9f28739855ff5c5204752a8d92a1c9f63993 golang.tar.gz" | sha256sum -c - \
 	&& tar -C /usr/local -xzf golang.tar.gz \
 	&& rm golang.tar.gz &&\
-curl http://beyondgrep.com/ack-2.14-single-file > /bin/ack &&\
+curl http://beyondgrep.com/ack-2.24-single-file > /bin/ack &&\
 chmod 0755 /bin/ack &&\
-mkdir -p ~/.vim/bundle &&\
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim &&\
-curl -Ssl https://raw.githubusercontent.com/lijianying10/FixLinux/master/dotfile/.vimrc -o ~/.vimrc &&\
-curl -Ssl https://raw.githubusercontent.com/lijianying10/FixLinux/master/dotfile/.bashrc -o ~/.bashrc &&\
-mkdir ~/.vim/colors/ &&\
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim &&\
+curl -Ssl https://raw.githubusercontent.com/lijianying10/FixLinux/neovim/dotfile/.vimrc -o ~/.vimrc &&\
+curl -Ssl https://raw.githubusercontent.com/lijianying10/FixLinux/neovim/dotfile/.bashrc -o ~/.bashrc &&\
+mkdir -p ~/.config && mkdir -p /root/.vim/ &&\
+ln -s /root/.vim /root/.config/nvim &&\
+ln -s /root/.vimrc /root/.vim/init.vim &&\
+mkdir -p ~/.vim/colors/ &&\
 curl -Ssl https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim -o ~/.vim/colors/molokai.vim &&\
-vim "+PluginInstall" "+qall" &&\
-go get github.com/nsf/gocode &&\
-go get github.com/alecthomas/gometalinter &&\
-go get golang.org/x/tools/cmd/goimports &&\
-go get golang.org/x/tools/cmd/guru &&\
-go get golang.org/x/tools/cmd/gorename &&\
-go get github.com/golang/lint/golint &&\
-go get github.com/rogpeppe/godef &&\
-go get github.com/kisielk/errcheck &&\
-go get github.com/jstemmer/gotags &&\
-go get github.com/klauspost/asmfmt/cmd/asmfmt &&\
-go get github.com/fatih/motion &&\
-go get -u github.com/haya14busa/gopkgs/cmd/gopkgs &&\
-go get github.com/zmb3/gogetdoc &&\
-go get github.com/josharian/impl &&\
-go get github.com/derekparker/delve/cmd/dlv &&\
+pip3 install neovim --upgrade && nvim -i NONE -c PlugInstall -c quitall &&\
+go get -u github.com/klauspost/asmfmt/cmd/asmfmt &&\
+go get -u github.com/derekparker/delve/cmd/dlv &&\
+go get -u github.com/kisielk/errcheck &&\
+go get -u github.com/davidrjenni/reftools/cmd/fillstruct &&\
+go get -u github.com/mdempsky/gocode &&\
+go get -u github.com/stamblerre/gocode &&\
+go get -u github.com/rogpeppe/godef &&\
+go get -u github.com/zmb3/gogetdoc &&\
+go get -u golang.org/x/tools/cmd/goimports &&\
+go get -u golang.org/x/lint/golint &&\
+go get -u github.com/alecthomas/gometalinter &&\
 go get -u github.com/fatih/gomodifytags &&\
-go get -u github.com/dominikh/go-tools/cmd/keyify &&\
-wget https://github.com/buger/goreplay/releases/download/v0.16.0.2/gor_0.16.0_x64.tar.gz && tar xf gor_0.16.0_x64.tar.gz && mv gor /bin/gor && chmod +x /bin/gor && rm -rf gor_0.16.0_x64.tar.gz &&\
+go get -u golang.org/x/tools/cmd/gorename &&\
+go get -u github.com/jstemmer/gotags &&\
+go get -u golang.org/x/tools/cmd/guru &&\
+go get -u github.com/josharian/impl &&\
+go get -u honnef.co/go/tools/cmd/keyify &&\
+go get -u github.com/fatih/motion &&\
+go get -u github.com/koron/iferr &&\
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen &&\
 locale-gen "en_US.UTF-8"&& mkdir ~/.fonts/ &&\
 cd ~/.fonts/ &&\
@@ -46,15 +50,7 @@ rm -rf consolas-powerline-vim/ &&\
 mkfontscale &&\
 mkfontdir &&\
 fc-cache -vf &&\
-cd ~/.vim/bundle/command-t/ruby/command-t/ext/command-t/ &&\
-ruby extconf.rb &&\
-make && cd /root/.vim/bundle/YouCompleteMe &&\
-./install.py --gocode-completer --clang-completer &&\
-gocode set unimported-packages true &&\
-cd /root/.vim/bundle/fzf && ./install --all &&\
-cp /root/.vim/bundle/fzf/bin/* /bin &&\
-wget https://nodejs.org/dist/v6.11.0/node-v6.11.0-linux-x64.tar.xz &&\
-tar -xJf node-v6.11.0-linux-x64.tar.xz -C /usr/local --strip-components=1 &&\
-rm -rf node-v6.11.0-linux-x64.tar.xz &&\
-ln -s /usr/local/bin/node /usr/local/bin/nodejs &&\
-npm install --global flow-bin
+cd ~/.vim/plugged/command-t/ruby/command-t/ext/command-t/ &&\
+ruby extconf.rb && make && make install &&\
+cd ~/.vim/plugged/fzf && ./install --all &&\
+cp ~/.vim/plugged/fzf/bin/* /bin

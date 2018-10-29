@@ -1,48 +1,35 @@
-set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'fatih/vim-go'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'mileszs/ack.vim'
-Plugin 'majutsushi/tagbar.git'
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'wincent/command-t'
-Plugin 'vim-airline/vim-airline'
-Plugin 'solarnz/thrift.vim'
-Plugin 'junegunn/fzf'
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+" Initialize plugin system
+Plug 'fatih/vim-go'
+Plug 'mileszs/ack.vim'
+Plug 'majutsushi/tagbar.git'
+Plug 'scrooloose/nerdtree.git'
+Plug 'wincent/command-t'
+Plug 'vim-airline/vim-airline'
+Plug 'junegunn/fzf'
 " for HTML
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 " for typescript
-Plugin 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 " for JS
-Plugin 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'
 " for SNIP tool
-Plugin 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
-call vundle#end()            " required
-filetype plugin indent on    " required
-set shiftwidth=4
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-    " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-"
+Plug 'honza/vim-snippets'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+call plug#end()
+
+let g:python3_host_prog = '/usr/bin/python3'
+" let g:python_host_prog = '/usr/bin/python'
+let g:loaded_python_provider=1
+let g:python_host_skip_check=1
+let g:deoplete#enable_at_startup = 1
 
 " 代码高亮用的
 syntax enable
@@ -55,31 +42,6 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports" "保存的时候自动运行goimports
-
-" 自动补全
-" 是否开启语义补全"
-let g:ycm_seed_identifiers_with_syntax=1
-" 是否在注释中也开启补全"
-let g:ycm_complete_in_comments=1
-let g:ycm_collect_identifiers_from_comments_and_strings = 0
-" 开始补全的字符数"
-let g:ycm_min_num_of_chars_for_completion=2
-" 补全后自动关机预览窗口"
-let g:ycm_autoclose_preview_window_after_completion=1
-" 禁止缓存匹配项,每次都重新生成匹配项"
-let g:ycm_cache_omnifunc=0
-" 字符串中也开启补全"
-let g:ycm_complete_in_strings = 1
-" 离开插入模式后自动关闭预览窗口"
-" autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-" 回车即选中当前项"
-inoremap <expr> <CR>       pumvisible() ? '<C-y>' : '<CR>'
-
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
 
 " 颜色配置
 colorscheme molokai
@@ -114,14 +76,14 @@ let g:tagbar_type_go = {
     \ }
 
 " 标签映射
-execute "set <M-i>=\ei"
-execute "set <M-o>=\eo"
-execute "set <M-p>=\ep"
-execute "set <M-u>=\eu"
-execute "set <M-l>=\el"
-execute "set <M-n>=\en"
-execute "set <M-y>=\ey"
-execute "set <M-c>=\ec"
+" execute "set <M-i>=\ei"
+" execute "set <M-o>=\eo"
+" execute "set <M-p>=\ep"
+" execute "set <M-u>=\eu"
+" execute "set <M-l>=\el"
+" execute "set <M-n>=\en"
+" execute "set <M-y>=\ey"
+" execute "set <M-c>=\ec"
 
 nmap <M-p> :TagbarToggle<CR>
 imap <M-p> <esc>:TagbarToggle<CR>i
