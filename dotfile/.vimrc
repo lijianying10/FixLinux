@@ -24,6 +24,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'w0rp/ale'
 call plug#end()
 
 let g:python3_host_prog = '/usr/bin/python3'
@@ -185,3 +186,11 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#go#gocode_binary='/go/bin/gocode'
 let g:deoplete#sources#go#builtin_objects=1
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+
+" For ale
+let g:ale_linters = {'go': ['gometalinter', 'gofmt']}
+" Error and warning signs.
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
+" Enable integration with airline.
+let g:airline#extensions#ale#enabled = 1
