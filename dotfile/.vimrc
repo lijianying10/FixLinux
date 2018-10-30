@@ -37,6 +37,7 @@ let g:deoplete#enable_at_startup = 1
 syntax enable
 filetype plugin on
 set number
+set noswapfile
 let g:go_fmt_command = "goimports" "保存的时候自动运行goimports
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_extra_types = 1
