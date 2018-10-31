@@ -45,6 +45,7 @@ go get -u github.com/golang/dep/cmd/dep &&\
 go get -u github.com/derekparker/delve/cmd/dlv &&\
 go get -u github.com/haya14busa/gopkgs/cmd/gopkgs &&\
 go get -u github.com/fullstorydev/grpcurl &&\
+go get -u github.com/gopherjs/gopherjs &&\
 go install github.com/fullstorydev/grpcurl/cmd/grpcurl &&\	
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen &&\
 locale-gen "en_US.UTF-8"&& mkdir ~/.fonts/ &&\
