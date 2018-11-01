@@ -189,7 +189,7 @@ let g:deoplete#sources#go#builtin_objects=1
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
 " For ale
-let g:ale_linters = {'go': ['gofmt']}
+let g:ale_linters = {'go': ['golint']}
 " Error and warning signs.
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
