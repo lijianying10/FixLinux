@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 ENV GOPATH="/go" PATH="/go/bin:/usr/local/go/bin:$PATH:/usr/local/node/bin/"
 
 RUN apt-get update &&\
-apt-get install -y --no-install-recommends telnet dnsutils mercurial build-essential curl git m4 texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev zip unzip locales xfonts-utils fontconfig ctags cmake libc6-dev pkg-config libelf1 wget iputils-ping software-properties-common ninja-build gettext libtool libtool-bin autotools-dev automake sudo python3-pip python3-setuptools ssh-client supervisor nginx tmux screen openssh-server &&\
+apt-get install -y --no-install-recommends telnet dnsutils mercurial build-essential curl git m4 texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev zip unzip locales xfonts-utils fontconfig ctags cmake libc6-dev pkg-config libelf1 wget iputils-ping software-properties-common ninja-build gettext libtool libtool-bin autotools-dev automake sudo python3-pip python3-setuptools ssh-client supervisor nginx tmux screen openssh-server ack-grep &&\
 mkdir /var/run/sshd && chmod 0755 /var/run/sshd &&\
 wget https://github.com/krallin/tini/releases/download/v0.18.0/tini-amd64 -O /bin/tini && chmod +x /bin/tini &&\
 wget https://github.com/neovim/neovim/archive/v0.3.1.tar.gz && tar xf v0.3.1.tar.gz && rm v0.3.1.tar.gz && cd neovim-0.3.1 && mkdir .deps && cd .deps && cmake ../third-party/ && make -j4 && cd .. && mkdir build && cd build && cmake .. && make -j4 && make install && cd / && rm -rf /neovim-0.3.1/ &&\
@@ -11,7 +11,6 @@ curl -fsSL "https://dl.google.com/go/go1.11.1.linux-amd64.tar.gz" -o golang.tar.
 	&& echo "2871270d8ff0c8c69f161aaae42f9f28739855ff5c5204752a8d92a1c9f63993 golang.tar.gz" | sha256sum -c - \
 	&& tar -C /usr/local -xzf golang.tar.gz \
 	&& rm golang.tar.gz &&\
-curl http://beyondgrep.com/ack-2.24-single-file > /bin/ack &&\
 chmod 0755 /bin/ack &&\
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim &&\
 curl -Ssl https://raw.githubusercontent.com/lijianying10/FixLinux/master/dotfile/.vimrc -o ~/.vimrc &&\
