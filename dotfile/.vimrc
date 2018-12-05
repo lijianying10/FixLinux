@@ -195,3 +195,10 @@ let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
 " Enable integration with airline.
 let g:airline#extensions#ale#enabled = 1
+
+" For ack
+" Real time preview
+let g:ackpreview=1
+
+" Offset while scroll line
+set scrolloff=6
