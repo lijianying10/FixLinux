@@ -5,7 +5,7 @@ RUN apt-get update &&\
 apt-get install -y --no-install-recommends telnet dnsutils mercurial build-essential curl git m4 texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev zip unzip locales xfonts-utils fontconfig ctags cmake libc6-dev pkg-config libelf1 wget iputils-ping software-properties-common ninja-build gettext libtool libtool-bin autotools-dev automake sudo python3-pip python3-setuptools ssh-client supervisor nginx tmux screen openssh-server ack-grep python3-dev &&\
 mkdir /var/run/sshd && chmod 0755 /var/run/sshd &&\
 wget https://github.com/krallin/tini/releases/download/v0.18.0/tini-amd64 -O /bin/tini && chmod +x /bin/tini &&\
-wget https://github.com/neovim/neovim/archive/v0.3.1.tar.gz && tar xf v0.3.1.tar.gz && rm v0.3.1.tar.gz && cd neovim-0.3.1 && mkdir .deps && cd .deps && cmake ../third-party/ && make -j4 && cd .. && mkdir build && cd build && cmake .. && make -j4 && make install && cd / && rm -rf /neovim-0.3.1/ &&\
+wget https://github.com/neovim/neovim/archive/v0.3.4.tar.gz && tar xf v0.3.4.tar.gz && rm v0.3.4.tar.gz && cd neovim-0.3.4 && mkdir .deps && cd .deps && cmake ../third-party/ && make -j4 && cd .. && mkdir build && cd build && cmake .. && make -j4 && make install && cd / && rm -rf /neovim-0.3.1/ &&\
 curl -fsSL "https://dl.google.com/go/go1.11.4.linux-amd64.tar.gz" -o golang.tar.gz \
 	&& echo "fb26c30e6a04ad937bbc657a1b5bba92f80096af1e8ee6da6430c045a8db3a5b golang.tar.gz" | sha256sum -c - \
 	&& tar -C /usr/local -xzf golang.tar.gz \
