@@ -76,3 +76,9 @@ RUN mkdir -p ${ANDROID_HOME} && \
         "platforms;android-28" \
         "platforms;android-29" \
         "tools"
+
+ENV PATH ${PATH}:/opt/gradle/gradle-current/bin/
+RUN mkdir -p /opt/gradle && cd /opt/gradle && wget http://127.0.0.1:8000/gradle-4.8.1-bin.zip && wget http://127.0.0.1:8000/gradle-4.9-bin.zip && wget http://127.0.0.1:8000/gradle-5.5.1-bin.zip && unzip gradle-4.8.1-bin.zip &&\
+unzip gradle-4.9-bin.zip &&\
+unzip gradle-5.5.1-bin.zip &&\
+rm *.zip
