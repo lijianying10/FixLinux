@@ -47,6 +47,7 @@ let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
+let g:go_def_mode = 'godef'
 
 " 颜色配置
 colorscheme molokai
@@ -202,3 +203,5 @@ let g:ackpreview=1
 
 " Offset while scroll line
 set scrolloff=6
+
+set completeopt-=preview
