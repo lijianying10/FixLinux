@@ -1,7 +1,4 @@
 {
-  "extensions": {
-    "coc-go": "0.13.3"
-  },
   "languageserver": {
     "golang": {
       "command": "gopls",
