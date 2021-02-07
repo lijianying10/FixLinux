@@ -46,7 +46,7 @@ let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
-let g:go_def_mode = 'gopls'
+let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 
 " 颜色配置
@@ -101,7 +101,7 @@ imap <M-o> <esc>:tabn<CR>
 nmap <M-i> :tabp<CR>
 imap <M-i> <esc>:tabp<CR>
 nmap <M-l> :w<CR>:GoMetaLinter<CR>
-nmap <M-n> :GoDef<CR>
+nmap <M-n> <Plug>(coc-definition)
 nmap <C-z> :undo<CR>
 nmap <M-y> :GoErrCheck<CR>
 nmap <C-s> :w<CR>
