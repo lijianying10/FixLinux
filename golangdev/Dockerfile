@@ -9,9 +9,9 @@ wget https://nodejs.org/dist/v14.15.4/node-v14.15.4-linux-x64.tar.xz && tar xf n
 wget https://github.com/krallin/tini/releases/download/v0.19.0/tini-amd64 -O /bin/tini && chmod +x /bin/tini &&\
 wget https://github.com/neovim/neovim/archive/v0.4.4.tar.gz && tar xf v0.4.4.tar.gz && rm v0.4.4.tar.gz && cd neovim-0.4.4 && mkdir .deps && cd .deps && cmake ../third-party/ && make -j8 && cd .. && mkdir build && cd build && cmake .. && make -j8 && make install && cd / && rm -rf /neovim-0.4.4/ &&\
 curl -fsSL "https://dl.google.com/go/go1.15.8.linux-amd64.tar.gz" -o golang.tar.gz \
-	&& echo "d3379c32a90fdf9382166f8f48034c459a8cc433730bc9476d39d9082c94583b golang.tar.gz" | sha256sum -c - \
-	&& tar -C /usr/local -xzf golang.tar.gz \
-	&& rm golang.tar.gz &&\
+        && echo "d3379c32a90fdf9382166f8f48034c459a8cc433730bc9476d39d9082c94583b golang.tar.gz" | sha256sum -c - \
+        && tar -C /usr/local -xzf golang.tar.gz \
+        && rm golang.tar.gz &&\
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim &&\
 curl -Ssl https://raw.githubusercontent.com/lijianying10/FixLinux/master/dotfile/.vimrc -o ~/.vimrc &&\
 curl -Ssl https://raw.githubusercontent.com/lijianying10/FixLinux/master/dotfile/.bashrc -o ~/.bashrc &&\
@@ -23,7 +23,7 @@ mkdir -p ~/.vim/colors/ &&\
 npm install --global yarn &&\
 npm install -g neovim &&\
 pip3 install neovim --upgrade && nvim -i NONE -c PlugInstall! -c quitall &&\
-nvim -i NONE -c GoInstallBinaries! -c quitall &&\
+nvim +GoInstallBinaries +qall &&\
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen &&\
 locale-gen "en_US.UTF-8"&& mkdir ~/.fonts/ &&\
 cd ~/.fonts/ &&\
@@ -35,3 +35,6 @@ rm -rf consolas-powerline-vim/ &&\
 mkfontscale &&\
 mkfontdir &&\
 fc-cache -vf
+
+ENTRYPOINT ["/bin/tini", "--"]
+CMD ["/usr/bin/sleep", "200d"]
