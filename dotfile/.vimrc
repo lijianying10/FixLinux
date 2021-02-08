@@ -25,6 +25,9 @@ Plug 'honza/vim-snippets'
 Plug 'w0rp/ale'
 Plug 'joshdick/onedark.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'google/vim-maktaba'
+Plug 'bazelbuild/vim-bazel'
+Plug 'tmhedberg/simpylfold'
 call plug#end()
 
 let g:python3_host_prog = '/usr/bin/python3'
@@ -371,3 +374,8 @@ set nuw=1
 
 " disable vim-go gopls
 let g:go_gopls_enabled=0
+
+" enable fold
+set foldmethod=syntax
+set foldlevel=4
+let g:SimpylFold_docstring_preview=1
